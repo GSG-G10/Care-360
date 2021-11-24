@@ -9,6 +9,7 @@ const appointmentsId = (req, res, next) => {
 };
 
 const appointmentsPost = (req, res, next) => {
+  console.log('start post');
   res.json({ we: ' post' });
   // next();
 };

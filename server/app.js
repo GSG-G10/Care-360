@@ -3,12 +3,14 @@ require('dotenv').config();
 const { join } = require('path');
 
 const express = require('express');
+const cors = require('cors');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
 
 const router = require('./routes');
 
 const app = express();
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 const {
   env: { PORT, NODE_ENV },
