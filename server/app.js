@@ -1,5 +1,4 @@
-require('dotenv').config();
-
+require('env2')('.env');
 const { join } = require('path');
 
 const express = require('express');
@@ -20,14 +19,12 @@ app.disable('x-powered-by');
 
 app.set('port', PORT || 5000);
 
-app.use(
-  [
-    compression(),
-    cookieParser(),
-    express.urlencoded({ extended: false, limit: '5mb' }),
-    express.json({ limit: '50mb' }),
-  ],
-);
+app.use([
+  compression(),
+  cookieParser(),
+  express.urlencoded({ extended: false, limit: '5mb' }),
+  express.json({ limit: '50mb' }),
+]);
 
 app.use('/api/v1/', router);
 
