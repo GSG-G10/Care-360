@@ -1,0 +1,1 @@
+const getspecialist = require('../controllers/pages')
