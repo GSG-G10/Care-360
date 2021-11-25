@@ -1,4 +1,4 @@
-const getspecialist = require('./pages');
+const getspecialist = require('./specialists');
 const { appointmentsId, appointmentsPost } = require('./appointments');
 
 module.exports = {
