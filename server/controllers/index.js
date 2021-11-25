@@ -1,5 +1,5 @@
-const { appointmentsId, appointmentsPost } = require('./appointments');
 const { getspecialist } = require('./specialists');
+const { appointmentsId, appointmentsPost, books } = require('./appointments');
 const { error404, serverError } = require('./errors');
 
 module.exports = {
@@ -8,4 +8,5 @@ module.exports = {
   appointmentsId,
   appointmentsPost,
   getspecialist,
+  books,
 };
