@@ -1,6 +1,6 @@
-const getspecialist = require('../controllers/pages')
-const {appointmentsId, appointmentsPost} = require('../controllers/appointments');
+const getspecialist = require('./pages');
+const { appointmentsId, appointmentsPost } = require('./appointments');
 
 module.exports = {
-    appointmentsId,appointmentsPost,getspecialist
+  appointmentsId, appointmentsPost, getspecialist,
 };
