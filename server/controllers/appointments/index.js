@@ -1,3 +1,5 @@
-const { appointmentsId, appointmentsPost } = require('./appointments');
+const { appointmentsId } = require('./appointments');
+const { appointmentsPost } = require('./appointmentsPost');
+const { books } = require('./books');
 
-module.exports = { appointmentsId, appointmentsPost };
+module.exports = { appointmentsId, appointmentsPost, books };
