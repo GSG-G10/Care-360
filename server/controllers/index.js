@@ -1,5 +1,6 @@
-const {appointmentsId, appointmentsPost} = require('../controllers/appointments');
+const { appointmentsId, appointmentsPost } = require('./appointments');
+const { error404, serverError } = require('./errors');
 
 module.exports = {
-    appointmentsId,appointmentsPost
+  appointmentsId, appointmentsPost, error404, serverError,
 };

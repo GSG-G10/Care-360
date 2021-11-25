@@ -18,7 +18,7 @@ CREATE TABLE doctors(
     specialty VARCHAR (250) NOT NULL,
     center_name VARCHAR (200) NOT NULL,
     clinic_location VARCHAR (200) NOT NULL,
-    phone_number INTEGER NOT NULL,
+    phone_number VARCHAR (20) NOT NULL,
     education TEXT NOT NULL,
     experience TEXT NOT NULL,
     treatments TEXT NOT NULL,
