@@ -7,8 +7,8 @@ const getspecialist = async (req, res, next) => {
       const { rows } = await getspecialistquery(name, speciality);
       return res.json({ data: rows });
     }
-    return res
-      .json({ data: await allSpecialists() });
+    const { rows } = await allSpecialists();
+    return res.json({ data: rows });
   } catch (err) {
     return next(err);
   }
