@@ -1,15 +1,14 @@
-const { getspecialistquery } = require('../../database/queries');
+const { getspecialistquery, allSpecialists } = require('../../database/queries');
 
 const getspecialist = async (req, res, next) => {
   try {
     const { name, speciality } = req.query;
     if (name || speciality) {
       const { rows } = await getspecialistquery(name, speciality);
-      return res.json(rows);
+      return res.json({ data: rows });
     }
     return res
-      .status(400)
-      .json({ message: 'write the Name ' });
+      .json({ data: await allSpecialists() });
   } catch (err) {
     return next(err);
   }

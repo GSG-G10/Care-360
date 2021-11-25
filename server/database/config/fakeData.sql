@@ -31,9 +31,14 @@ VALUES ('Brit Postles', 'bpostles0@cyberchimps.com', 'u0KSXpw6bP', 195552783),
  ('Hildegaard Pindell', 'hpindellt@about.com', 'srEFo3qaNud0', 118851179);
 
 INSERT INTO doctors (name, email, password, specialty, center_name, clinic_location, phone_number, education, experience, treatments, image) 
-VALUES ('Ariela Bauman', 'abauman0@marriott.com', 'xAkGd70', 'Gynecologists', 'Lockman, Pouros and Walker', 'Giồng Trôm', '122-849-4955', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+VALUES ('Ariela Bauman', 'abauman0@marriott.com', 'xAkGd70', 'Gynecologists', 'Lockman,
+Pouros and Walker', 'Giồng Trôm', '122-849-4955',
+'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.', 
+'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 
+'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg'),
 
-Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg'),
+
  ('Lyndel Clausius', 'lclausius1@gnu.org', 'gZbsy7t7G', 'Gynecologists', 'Kshlerin-Stracke', 'Tewulike', '930-463-1502', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
 
 Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg'),
@@ -221,3 +226,4 @@ INSERT INTO appointments (date, time, user_id, doctor_id)
 ('2021-01-05', '3:32 AM', 28, 4),
 ('2021-05-24', '2:33 AM', 18, 30),
 ('2021-06-14', '3:25 PM', 16, 18);
+
