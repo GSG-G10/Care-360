@@ -1,3 +1,4 @@
 const userVerify = require('./userVerify');
+const checkUserExist = require('./checkUserExist');
 
-module.exports = userVerify;
+module.exports = { userVerify, checkUserExist };
