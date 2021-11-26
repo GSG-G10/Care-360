@@ -1,8 +1,12 @@
 const { getspecialist } = require('./specialists');
 const {
-  appointmentsId, appointmentsPost, books, deleteAppointment,
+  appointmentsId,
+  appointmentsPost,
+  books,
+  deleteAppointment,
 } = require('./appointments');
 const { error404, serverError } = require('./errors');
+const { signup } = require('./auth');
 
 module.exports = {
   error404,
@@ -12,4 +16,5 @@ module.exports = {
   getspecialist,
   books,
   deleteAppointment,
+  signup,
 };
