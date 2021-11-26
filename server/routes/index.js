@@ -2,13 +2,13 @@ const router = require('express').Router();
 const {
   error404,
   serverError,
-  getSpecialists,
   appointmentsId,
+  getspecialist,
   appointmentsPost,
   books,
 } = require('../controllers');
 
-router.get('/specialists', getSpecialists);
+router.get('/specialists', getspecialist);
 router.get('/appointments/:id', appointmentsId);
 router.post('/appointments', appointmentsPost);
 router.get('/books/:id', books);
