@@ -9,9 +9,6 @@ module.exports = {
   getSpecialists,
   appointmentsId,
   appointmentsPost,
-<<<<<<< HEAD
   getDoctor,
-=======
   books,
->>>>>>> 743e9cfea99224473680b2dba17baf2fb2125ba8
 };
