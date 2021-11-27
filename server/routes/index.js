@@ -9,12 +9,14 @@ const {
   deleteAppointment,
   signup,
   login,
+  logout,
 } = require('../controllers');
 const { userVerify, checkUserExist } = require('../middlewares');
 
 router.get('/specialists', getspecialist);
 router.get('/appointments/:id', appointmentsId);
 router.get('/books/:id', books);
+router.get('/logout', logout);
 
 router.post('/appointments', appointmentsPost);
 router.post('/signup', checkUserExist, signup);
