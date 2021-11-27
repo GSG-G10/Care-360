@@ -8,6 +8,7 @@ const {
   books,
   deleteAppointment,
   signup,
+  login,
 } = require('../controllers');
 const { userVerify, checkUserExist } = require('../middlewares');
 
@@ -17,6 +18,7 @@ router.get('/books/:id', books);
 
 router.post('/appointments', appointmentsPost);
 router.post('/signup', checkUserExist, signup);
+router.post('/login', login);
 
 router.delete('/appointments/:id', userVerify, deleteAppointment);
 

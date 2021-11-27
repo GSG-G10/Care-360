@@ -6,7 +6,7 @@ const {
   deleteAppointment,
 } = require('./appointments');
 const { error404, serverError } = require('./errors');
-const { signup } = require('./auth');
+const { signup, login } = require('./auth');
 
 module.exports = {
   error404,
@@ -17,4 +17,5 @@ module.exports = {
   books,
   deleteAppointment,
   signup,
+  login,
 };

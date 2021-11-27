@@ -7,6 +7,7 @@ const getDoctorBooks = require('./getDoctorBooks');
 const { deleteAppointQuery, getAppointmentById } = require('./appointment');
 const checkEmail = require('./checkEmail');
 const addNewUser = require('./addNewUser');
+const getUser = require('./getUser');
 
 module.exports = {
   getAppontId,
@@ -19,4 +20,5 @@ module.exports = {
   getAppointmentById,
   checkEmail,
   addNewUser,
+  getUser,
 };
