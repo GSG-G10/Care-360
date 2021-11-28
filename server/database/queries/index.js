@@ -1,6 +1,6 @@
 const getAppontId = require('./getAppontId');
 const getDoctor = require('./getDoctor');
-const allSpecialists = require('./specialists');
+const { allSpecialists, addSpecialist, checkSpecialistEmail } = require('./specialists');
 const getspecialistquery = require('./getspecialistquery');
 const setUserBook = require('./setUserBook');
 const getDoctorBooks = require('./getDoctorBooks');
@@ -10,15 +10,17 @@ const addNewUser = require('./addNewUser');
 const getUser = require('./getUser');
 
 module.exports = {
-  getAppontId,
+  getUser,
   getDoctor,
-  allSpecialists,
+  checkEmail,
+  addNewUser,
   setUserBook,
+  getAppontId,
+  addSpecialist,
+  allSpecialists,
   getDoctorBooks,
   getspecialistquery,
   deleteAppointQuery,
   getAppointmentById,
-  checkEmail,
-  addNewUser,
-  getUser,
+  checkSpecialistEmail,
 };

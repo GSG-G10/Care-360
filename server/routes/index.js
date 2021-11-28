@@ -1,18 +1,20 @@
 const router = require('express').Router();
 const {
+  login,
+  books,
+  signup,
+  logout,
   error404,
   serverError,
-  appointmentsId,
   getspecialist,
+  appointmentsId,
+  postSpecialist,
   appointmentsPost,
-  books,
   deleteAppointment,
-  signup,
-  login,
-  logout,
 } = require('../controllers');
 const { userVerify, checkUserExist } = require('../middlewares');
 
+router.post('/specialist', postSpecialist);
 router.get('/specialists', getspecialist);
 router.get('/appointments/:id', appointmentsId);
 router.get('/books/:id', books);
