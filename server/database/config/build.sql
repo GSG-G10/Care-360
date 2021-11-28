@@ -7,7 +7,8 @@ CREATE TABLE users(
     name VARCHAR (100) NOT NULL,
     email VARCHAR (150) NOT NULL, 
     password TEXT NOT NULL,
-    identity_number INTEGER NOT NULL
+    identity_number INTEGER NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE
 ); 
 
 CREATE TABLE doctors(

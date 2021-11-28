@@ -1,4 +1,4 @@
-const getSpecialists = require('./getSpecialists');
+const getspecialist = require('./getspecialist');
 const postSpecialist = require('./postSpecialist');
 
-module.exports = { getSpecialists, postSpecialist };
+module.exports = { getspecialist, postSpecialist };
