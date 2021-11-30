@@ -1,3 +1,6 @@
+const { appointmentsId, appointmentsPost, books } = require('./appointments');
+const { getDoctor } = require('./doctors');
+const { getspecialist } = require('./specialists');
 const {
   appointmentsId,
   appointmentsPost,
@@ -24,5 +27,8 @@ module.exports = {
   getSpecialists,
   appointmentsId,
   appointmentsPost,
+  getDoctor,
+  getspecialist,
+  books,
   deleteAppointment,
 };
