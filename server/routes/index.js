@@ -6,7 +6,6 @@ const {
   logout,
   error404,
   serverError,
-  appointmentsId,
   getDoctor,
   getspecialist,
   appointmentsId,

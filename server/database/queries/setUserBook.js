@@ -1,11 +1,9 @@
 const connection = require('../connection');
 
-const addAppointTO = (fulldate, time, user_id, doctor_id) => {
-  connection.query(
-    'insert into appointments (date,time,user_id,doctor_id) values ($1,$2,$3,$4);',
-    [fulldate, time, user_id, doctor_id],
-  );
-};
+const addAppointTO = (fulldate, time, user_id, doctor_id) => connection.query(
+  'insert into appointments (date,time,user_id,doctor_id) values ($1,$2,$3,$4);',
+  [fulldate, time, user_id, doctor_id],
+);
 
 const setUserBook = async ({
   date,
