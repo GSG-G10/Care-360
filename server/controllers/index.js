@@ -1,6 +1,4 @@
-const { appointmentsId, appointmentsPost, books } = require('./appointments');
 const { getDoctor } = require('./doctors');
-const { getspecialist } = require('./specialists');
 const {
   appointmentsId,
   appointmentsPost,
