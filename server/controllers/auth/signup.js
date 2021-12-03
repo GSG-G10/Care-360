@@ -17,6 +17,7 @@ const signup = async (req, res, next) => {
     req.id = id;
     req.name = name;
     req.isAdmin = is_admin;
+    res.json({ message: 'sign up successfully' });
     next();
   } catch (error) {
     res.status(403).json({ message: error });

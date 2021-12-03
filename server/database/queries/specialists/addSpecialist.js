@@ -1,5 +1,5 @@
 const connection = require('../../connection');
-const hashPassword = require('../../../utils/bcrypt');
+const hashPassword = require('../../../utils/hashPassword');
 
 const addSpecialist = async ({
   name,
@@ -22,8 +22,19 @@ const addSpecialist = async ({
         phone_number,education, experience, treatments, image)
       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) 
       RETURNING id, name;`,
-    [name, email, hashedPassword, specialty, center_name, clinic_location, phone_number,
-      education, experience, treatments, image],
+    [
+      name,
+      email,
+      hashedPassword,
+      specialty,
+      center_name,
+      clinic_location,
+      phone_number,
+      education,
+      experience,
+      treatments,
+      image,
+    ],
   );
   return rows[0];
 };
