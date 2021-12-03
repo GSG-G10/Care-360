@@ -1,7 +1,7 @@
 const connection = require('../../connection');
 const hashPassword = require('../../../utils/bcrypt');
 
-module.exports = async ({
+const addSpecialist = async ({
   name,
   email,
   password,
@@ -27,3 +27,5 @@ module.exports = async ({
   );
   return rows[0];
 };
+
+module.exports = addSpecialist;
