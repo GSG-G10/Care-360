@@ -1,10 +1,20 @@
 import React from 'react';
-import { Button, Platform, StatusBar,StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Button,
+  Platform,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import{ Header }from '../components/Header'
 
-export default function Landing({navigation}) {
-  console.log( StatusBar.currentHeight);
+export default function Landing({ navigation }) {
+  console.log(StatusBar.currentHeight);
   return (
     <View style={styles.container}>
+      <Header />
       <Text> landing 0</Text>
       <Text> landing 1</Text>
       <Text> landing 2</Text>
@@ -12,11 +22,8 @@ export default function Landing({navigation}) {
       <Text> landing 4</Text>
       <Text> landing </Text>
       <Text> landing </Text>
-      <TextInput placeholder='title' />
-      <Button
-       title='Go to Home' 
-       onPress={()=>navigation.navigate('Home')}
-      />
+      <TextInput placeholder="title" />
+      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
     </View>
   );
 }
