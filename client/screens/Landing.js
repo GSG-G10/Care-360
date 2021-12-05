@@ -8,12 +8,13 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import{ Header }from '../components/Header'
+import{ Header }from '../components/Header';
+import{ Footer }from '../components/Footer';
 
 export default function Landing({ navigation }) {
   console.log(StatusBar.currentHeight);
   return (
-    <View style={styles.container}>
+    <View>
       <Header />
       <Text> landing 0</Text>
       <Text> landing 1</Text>
@@ -24,17 +25,9 @@ export default function Landing({ navigation }) {
       <Text> landing </Text>
       <TextInput placeholder="title" />
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+      <Footer />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    // marginTop: 50,
-    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    // paddingTop: 50,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
