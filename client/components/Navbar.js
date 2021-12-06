@@ -1,12 +1,16 @@
 import React from 'react';
-import  Header  from './Header';
-import {  View,  StyleSheet } from 'react-native';
+import {  View,  StyleSheet,Text } from 'react-native';
+import { NavList, Search, Contact } from './ui';
+
 function Navbar() {
   return (
     <View style={styles.container}>
-        Navbar
+      <NavList />
+      <Search />
+      <Contact />
+      <Text>© Medipol Health Group. All Rights Reserved.</Text>
     </View>
-  )
+  );
 }
 const styles = StyleSheet.create({
     container: {
