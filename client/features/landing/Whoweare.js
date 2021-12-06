@@ -26,23 +26,23 @@ export const Whoweare = () => {
 const styles = StyleSheet.create({
   whowearesection: {
     flex: 1,
-    width: '100%',
     alignContent: 'center',
+    alignItems:'center',
     justifyContent: 'center',
     flexDirection: 'row',
     marginBottom: 20,
   },
   whoweare: {
-    justifyContent:'space-around',
-    alignItems:"center",
     width:"50%",
+    justifyContent:'center',
+    alignItems:"center", 
 
   },
   whoweareimg: {
-    width: '60%',
-    height: '100%',
+    width: '80%',
+    height: '90%',
   },
   whowearetext: {
-    width: '20%',
+    width: '50%',
   },
 });
