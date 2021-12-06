@@ -108,7 +108,7 @@ export const Popularspecialities = ({navigation}) => {
 const styles = StyleSheet.create({
   title: {
     justifyContent: 'center',
-    alignItem: 'center',
+    alignItems: 'center',
     marginBottom: 20,
   },
   card: {
