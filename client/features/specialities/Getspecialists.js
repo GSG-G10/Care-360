@@ -69,7 +69,7 @@ export const Getspecialists = ({ route, navigation }) => {
       {data.length ? (
         data.map((e, i) => {
           return (
-            <View key={e.id}>
+            <View key={i}>
               <View style={{ width: 90, height: 100 }}><Image
                 style={{ width: "70%", height: "100%" }}
                 source={{ uri: e.image }}

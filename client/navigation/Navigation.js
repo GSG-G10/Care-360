@@ -21,8 +21,8 @@ function RootStack() {
         <Stack.Screen name='Book' component={Book} />
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Profile' component={Profile} />
-        <Stack.Screen name='appointment' component={appointment} />
-        <Stack.Screen name='Getspecialists' component={Getspecialists} />
+        <Stack.Screen name='appointment' component={appointment} /> 
+        <Stack.Screen name='Getspecialists' component={Getspecialists} /> 
       </Stack.Navigator>
     </NavigationContainer>
     )
