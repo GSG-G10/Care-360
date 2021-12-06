@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { color } from '../../utils/style/color';
 
-export const Viewspecialists = () => {
+export const Viewspecialists = ({navigation}) => {
   return (
     <View >
     <View style={styles.section}>
@@ -19,7 +19,7 @@ export const Viewspecialists = () => {
           List Your Physicians You can access your medical records and
           appointments.
         </Text>
-        <TouchableHighlight underlayColor="" onPress={() => null}>
+        <TouchableHighlight underlayColor="" onPress={() => navigation.navigate('Home')}>
           <View style={styles.btn}>
             <Text style={styles.countText}>View Specialists</Text>
           </View>

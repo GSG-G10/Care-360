@@ -15,12 +15,12 @@ import {Whoweare} from './Whoweare';
 import {Viewspecialists} from './Viewspecialists';
 import {Popularspecialities} from './Popularspecialities';
 
-export const Landingpage = () => {
+export const Landingpage = ({navigation}) => {
   return (
     <View style={{flex:1}}>
     <Header />
     <ScrollView>
-    <Viewspecialists />
+    <Viewspecialists navigation={navigation}/>
     <Popularspecialities />
     <Whoweare />
     </ScrollView>

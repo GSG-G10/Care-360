@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, View, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { color } from '../utils/style/color';
 
@@ -19,11 +19,10 @@ export const Header = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: color.blue,
+    width:'100%',
     height: '12%',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'fixed',
-    top: 0,
   },
   headerComponent: {
     width: '85%',
