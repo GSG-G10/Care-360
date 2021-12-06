@@ -7,16 +7,29 @@ export const Footer = () => {
   return (
     <View style={styles.footer}>
       <View style={styles.footerComponent}>
-        <Icon name="home" size="35" color="#fff" onPress={() => null} />
-        <Icon name="search" size="35" color="#fff" onPress={() => null} />
+        <Icon
+          name="home"
+          style={styles.icon}
+          color="#fff"
+          onPress={() => null}
+        />
+        <Icon
+          name="search"
+          style={styles.icon}
+          color="#fff"
+          onPress={() => null}
+        />
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
+  icon: {
+    fontSize: 35,
+  },
   footer: {
     height: '10%',
-    width:'100%',
+    width: '100%',
     backgroundColor: color.blue,
     alignItems: 'center',
     justifyContent: 'center',
