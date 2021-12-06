@@ -14,7 +14,7 @@ function RootStack() {
       <NavigationContainer>
       <Stack.Navigator 
         screenOptions={{   headerShown: false,}}
-        initialRouteName='Book'
+        initialRouteName='Landing'
       >
         <Stack.Screen name='Landing' component={Landing} />
         <Stack.Screen name='Book' component={Book} />

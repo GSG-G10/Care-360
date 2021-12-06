@@ -26,7 +26,5 @@ module.exports = {
   appointmentsId,
   appointmentsPost,
   getDoctor,
-  getspecialist,
-  books,
   deleteAppointment,
 };
