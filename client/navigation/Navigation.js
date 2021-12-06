@@ -5,6 +5,7 @@ import {Landingpage} from '../features/landing/Landingpage';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import Book from '../screens/Book';
+import appointment from '../screens/appointment'
 
 const Stack = createNativeStackNavigator()
 
@@ -19,6 +20,7 @@ function RootStack() {
         <Stack.Screen name='Book' component={Book} />
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Profile' component={Profile} />
+        <Stack.Screen name='appointment' component={appointment} />
       </Stack.Navigator>
     </NavigationContainer>
     )

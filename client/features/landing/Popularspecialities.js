@@ -6,16 +6,19 @@ import {
   StyleSheet,
   TouchableHighlight,
 } from 'react-native';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Card, Title } from 'react-native-paper';
 import { color } from '../../utils/style/color';
 
-export const Popularspecialities = () => {
+
+export const Popularspecialities = ({navigation}) => {
   return (
     <View style={styles.popularspecialities}>
       <Text style={styles.title}>Popular Specialities</Text>
 
       <View style={styles.cardsection}>
-        <Card style={styles.card} onPress={() => null}>
+        <Card style={styles.card} onPress={() => navigation.navigate('Specialist', {
+          search:"Dentists"
+        })}>
           <Card.Content>
             <View style={styles.container}>
               <Image
@@ -26,7 +29,9 @@ export const Popularspecialities = () => {
             </View>
           </Card.Content>
         </Card>
-        <Card style={styles.whitecard} onPress={() => null}>
+        <Card style={styles.whitecard} onPress={() => navigation.navigate('Specialist', {
+          search:"Generaldoctor"
+        })}>
           <Card.Content>
             <View style={styles.container}>
               <Image
@@ -38,7 +43,9 @@ export const Popularspecialities = () => {
             </View>
           </Card.Content>
         </Card>
-        <Card style={styles.whitecard} onPress={() => null}>
+        <Card style={styles.whitecard} onPress={() => navigation.navigate('Specialist', {
+          search:"Gynecologists"
+        })}>
           <Card.Content>
             <View style={styles.container}>
               <Image
@@ -51,7 +58,9 @@ export const Popularspecialities = () => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.card} onPress={() => null}>
+        <Card style={styles.card} onPress={() => navigation.navigate('Specialist', {
+          search:"Pediatricians"
+        })}>
           <Card.Content>
             <View style={styles.container}>
               <Image
@@ -64,7 +73,9 @@ export const Popularspecialities = () => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.card} onPress={() => null}>
+        <Card style={styles.card} onPress={() => navigation.navigate('Specialist', {
+          search:"Skin Doctors"
+        })}>
           <Card.Content>
             <View style={styles.container}>
               <Image
@@ -77,7 +88,9 @@ export const Popularspecialities = () => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.whitecard} onPress={() => null}>
+        <Card style={styles.whitecard} onPress={() => navigation.navigate('Specialist', {
+          search:"Ophtalmologist"
+        })}>
           <Card.Content>
             <View style={styles.container}>
               <Image

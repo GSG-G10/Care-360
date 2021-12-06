@@ -33,13 +33,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   whoweare: {
-    width: '55%',
+    justifyContent:'space-around',
+    alignItems:"center",
+    width:"50%",
+
   },
   whoweareimg: {
-    width: '90%',
+    width: '60%',
     height: '100%',
   },
   whowearetext: {
-    width: '40%',
+    width: '20%',
   },
 });

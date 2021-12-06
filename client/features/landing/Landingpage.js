@@ -13,6 +13,7 @@ import {Header} from '../../components/Header';
 import {Footer} from '../../components/Footer';
 import {Whoweare} from './Whoweare';
 import {Viewspecialists} from './Viewspecialists';
+import {Viewappointment} from './Viewappointment';
 import {Popularspecialities} from './Popularspecialities';
 
 export const Landingpage = ({navigation}) => {
@@ -21,8 +22,9 @@ export const Landingpage = ({navigation}) => {
     <Header />
     <ScrollView>
     <Viewspecialists navigation={navigation}/>
-    <Popularspecialities />
+    <Popularspecialities navigation={navigation} />
     <Whoweare />
+    <Viewappointment navigation={navigation}/>
     </ScrollView>
     <Footer />
     </View>
