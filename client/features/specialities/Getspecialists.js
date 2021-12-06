@@ -2,6 +2,7 @@ import axios from '../../components/axioscreate';
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image } from 'react-native';
 import { ListItem, Avatar, Icon } from 'react-native-elements';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Getspecialists = ({ route, navigation }) => {
   const { speciality: special } = route.params;
@@ -39,7 +40,7 @@ export const Getspecialists = ({ route, navigation }) => {
       <ListItem.Accordion
         content={
           <>
-            <ion-icon name="filter-outline"></ion-icon>
+            <MaterialCommunityIcons name="filter-variant" size={24} color="black" />
             <ListItem.Content>
               <ListItem.Title>Speciality</ListItem.Title>
             </ListItem.Content>
