@@ -322,7 +322,7 @@ export default function Book({ navigation }) {
 
         <Button
           title="Go to Landing"
-          onPress={() => navigation.navigate('Landing')}
+          onPress={() => navigation.navigate('Landingpage')}
         />
       </View>
     </View>

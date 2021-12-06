@@ -1,11 +1,11 @@
 import React from 'react'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Landing from '../screens/Landing';
+import {Landingpage} from '../features/landing/Landingpage';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import Book from '../screens/Book';
-import { View } from 'react-native';
+import appointment from '../screens/appointment'
 
 const Stack = createNativeStackNavigator()
 
@@ -14,12 +14,13 @@ function RootStack() {
       <NavigationContainer>
       <Stack.Navigator 
         screenOptions={{   headerShown: false,}}
-        initialRouteName='Landing'
+        initialRouteName='Landingpage'
       >
-        <Stack.Screen name='Landing' component={Landing} />
+        <Stack.Screen name='Landingpage' component={Landingpage} />
         <Stack.Screen name='Book' component={Book} />
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Profile' component={Profile} />
+        <Stack.Screen name='appointment' component={appointment} />
       </Stack.Navigator>
     </NavigationContainer>
     )

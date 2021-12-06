@@ -1,5 +1,5 @@
 import React from 'react';
-import {  View, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { color } from '../utils/style/color';
 
@@ -16,10 +16,10 @@ export const Footer = () => {
 const styles = StyleSheet.create({
   footer: {
     height: '10%',
+    width:'100%',
     backgroundColor: color.blue,
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'fixed',
     bottom: 0,
   },
   footerComponent: {

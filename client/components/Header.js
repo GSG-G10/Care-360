@@ -19,11 +19,10 @@ export const Header = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: color.blue,
+    width:'100%',
     height: '12%',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'fixed',
-    top: 0,
   },
   headerComponent: {
     width: '85%',
