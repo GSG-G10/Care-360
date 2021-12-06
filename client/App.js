@@ -7,10 +7,16 @@ import { StyleSheet,
 
 import Book from './screens/Book';
 import Navigation from './navigation/Navigation';
+import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
 
 
 export default function App() {
-  return <Navigation />
+  return(
+    <>
+    {/* <Navigation /> */}
+    <SpecialistCard />
+    </>
+  )
 }
 
 const styles = StyleSheet.create({
