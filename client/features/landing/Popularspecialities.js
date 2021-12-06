@@ -16,8 +16,8 @@ export const Popularspecialities = ({navigation}) => {
       <Text style={styles.title}>Popular Specialities</Text>
 
       <View style={styles.cardsection}>
-        <Card style={styles.card} onPress={() => navigation.navigate('Specialist', {
-          search:"Dentists"
+        <Card style={styles.card} onPress={() => navigation.navigate('Getspecialists', {
+          speciality:"Dentists"
         })}>
           <Card.Content>
             <View style={styles.container}>
@@ -29,8 +29,8 @@ export const Popularspecialities = ({navigation}) => {
             </View>
           </Card.Content>
         </Card>
-        <Card style={styles.whitecard} onPress={() => navigation.navigate('Specialist', {
-          search:"Generaldoctor"
+        <Card style={styles.whitecard} onPress={() => navigation.navigate('Getspecialists', {
+          speciality:"Generaldoctor"
         })}>
           <Card.Content>
             <View style={styles.container}>
@@ -43,8 +43,8 @@ export const Popularspecialities = ({navigation}) => {
             </View>
           </Card.Content>
         </Card>
-        <Card style={styles.whitecard} onPress={() => navigation.navigate('Specialist', {
-          search:"Gynecologists"
+        <Card style={styles.whitecard} onPress={() => navigation.navigate('Getspecialists', {
+          speciality:"Gynecologists"
         })}>
           <Card.Content>
             <View style={styles.container}>
@@ -58,8 +58,8 @@ export const Popularspecialities = ({navigation}) => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.card} onPress={() => navigation.navigate('Specialist', {
-          search:"Pediatricians"
+        <Card style={styles.card} onPress={() => navigation.navigate('Getspecialists', {
+          speciality:"Pediatricians"
         })}>
           <Card.Content>
             <View style={styles.container}>
@@ -73,8 +73,8 @@ export const Popularspecialities = ({navigation}) => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.card} onPress={() => navigation.navigate('Specialist', {
-          search:"Skin Doctors"
+        <Card style={styles.card} onPress={() => navigation.navigate('Getspecialists', {
+          speciality:"Skin Doctors"
         })}>
           <Card.Content>
             <View style={styles.container}>
@@ -88,16 +88,16 @@ export const Popularspecialities = ({navigation}) => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.whitecard} onPress={() => navigation.navigate('Specialist', {
-          search:"Ophtalmologist"
+        <Card style={styles.whitecard} onPress={() => navigation.navigate('Getspecialists', {
+          speciality:"Ophthalmologist"
         })}>
           <Card.Content>
             <View style={styles.container}>
               <Image
                 style={{ width: 70, height: 50 }}
-                source={require('../../utils/img/Ophtalmologist.png')}
+                source={require('../../utils/img/Ophthalmologist.png')}
               />
-              <Title style={styles.cardtitle}>Ophtalmologist</Title>
+              <Title style={styles.cardtitle}>Ophthalmologist</Title>
             </View>
           </Card.Content>
         </Card>
