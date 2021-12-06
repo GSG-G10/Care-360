@@ -3,6 +3,7 @@ import { StyleSheet,
   StatusBar
 ,Platform,
 } from 'react-native';
+import Navbar from './components/Navbar';
 
 
 import Book from './screens/Book';
@@ -10,7 +11,11 @@ import Navigation from './navigation/Navigation';
 
 
 export default function App() {
-  return <Navigation />
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 }
 
 const styles = StyleSheet.create({

@@ -3,7 +3,7 @@ import { Image, View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { color } from '../utils/style/color';
 
-export const Header = () => {
+const Header = () => {
   return (
     <View style={styles.header}>
       <View style={styles.headerComponent}>
@@ -37,3 +37,4 @@ const styles = StyleSheet.create({
     height: 50,
   },
 });
+export default Header;
