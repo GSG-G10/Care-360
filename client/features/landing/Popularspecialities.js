@@ -4,7 +4,6 @@ import {
   View,
   Image,
   StyleSheet,
-  TouchableHighlight,
 } from 'react-native';
 import { Card, Title } from 'react-native-paper';
 import { color } from '../../utils/style/color';
@@ -30,7 +29,7 @@ export const Popularspecialities = ({navigation}) => {
           </Card.Content>
         </Card>
         <Card style={styles.whitecard} onPress={() => navigation.navigate('Getspecialists', {
-          speciality:"Generaldoctor"
+          speciality:"General Doctor"
         })}>
           <Card.Content>
             <View style={styles.container}>
@@ -39,7 +38,7 @@ export const Popularspecialities = ({navigation}) => {
                 source={require('../../utils/img/Generaldoctor.png')}
               />
 
-              <Title style={styles.cardtitle}>Generaldoctor</Title>
+              <Title style={styles.cardtitle}>General Doctor</Title>
             </View>
           </Card.Content>
         </Card>

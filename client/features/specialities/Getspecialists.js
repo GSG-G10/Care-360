@@ -80,7 +80,7 @@ export const Getspecialists = ({ route, navigation }) => {
           );
         })
       ) : (
-        <Text>There is no doctors rooo7 mmmmuuuut </Text>
+        <Text>There is no doctors 7tmuuuuut  </Text>
       )}
     </View>
   );

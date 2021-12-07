@@ -23,7 +23,7 @@ export const Header = () => {
 };
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 35,
+    fontSize: 90,
   },
   header: {
     backgroundColor: color.blue,
