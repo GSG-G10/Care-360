@@ -4,16 +4,15 @@ import { StyleSheet,
 ,Platform,
 } from 'react-native';
 import Navbar from './components/Navbar';
-
-
 import Book from './screens/Book';
 import Navigation from './navigation/Navigation';
+import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
 
 
 export default function App() {
   return (
     <>
-      <Navbar />
+     <SpecialistCard />
     </>
   );
 }

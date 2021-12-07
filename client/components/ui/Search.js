@@ -1,22 +1,20 @@
 import * as React from 'react';
 import { Searchbar } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
 
-const Search = () => {
+const SearchSpecialist = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = (query) => setSearchQuery(query);
 
   return (
     <Searchbar
-      placeholder="Search"
+      placeholder="Search doctors"
       onChangeText={onChangeSearch}
       value={searchQuery}
+      style={{ width: '70%', height: 35, borderRadius: 20, fontSize: 10 }}
+      iconColor="#022752"
     />
   );
 };
-const styles = StyleSheet.create({
-  container: {},
-});
 
-export default Search;
+export default SearchSpecialist;

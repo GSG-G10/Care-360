@@ -13,9 +13,20 @@ function NavItem({ icon, title, link }) {
     )
 }
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    width: '40%',
+    alignSelf: 'center',
+    flexDirection: 'initial',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    padding: '0.5rem',
+  },
   textContainer: {},
-    text: {},
+  text: {
+    fontSize: '1.2rem',
+    fontWeight: '500',
+  },
 });
 
 export default NavItem

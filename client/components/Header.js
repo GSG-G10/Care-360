@@ -11,19 +11,26 @@ const Header = () => {
           style={styles.tinyLogo}
           source={require('../utils/img/logo.png')}
         />
-        <Icon name="menu" size="35" color="#fff" onPress={() => null} />
+        <Icon
+          style={styles.icon}
+          name="menu"
+          color="#fff"
+          onPress={() => null}
+        />
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
+  icon: {
+    fontSize: 90,
+  },
   header: {
     backgroundColor: color.blue,
+    width: '100%',
     height: '12%',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'fixed',
-    top: 0,
   },
   headerComponent: {
     width: '85%',

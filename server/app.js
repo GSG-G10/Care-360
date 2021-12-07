@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const router = require('./routes');
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.options('*', cors());
 
 const {
   env: { PORT, NODE_ENV },
