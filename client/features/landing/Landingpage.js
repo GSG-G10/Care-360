@@ -24,7 +24,7 @@ export const Landingpage = ({navigation}) => {
           <Popularspecialities navigation={navigation} />
           <Whoweare />
           <Viewappointment navigation={navigation} />
-        </ScrollView><Footer /></View>
+        </ScrollView><Footer navigation={navigation} /></View>
       : <Loadingpage />
     }
     </View>
