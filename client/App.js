@@ -3,9 +3,6 @@ import { StyleSheet,
   StatusBar
 ,Platform,
 } from 'react-native';
-
-
-import Book from './screens/Book';
 import Navigation from './navigation/Navigation';
 import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
 

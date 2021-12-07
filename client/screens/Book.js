@@ -49,24 +49,22 @@ export default function Book({ navigation }) {
       setThisYear(thisYear + 1);
     }
   };
-  const handlePost = () => {
+  const handlePost = async () => {
     if (!currentDay || !time) {
       alert('all chooses');
       console.log('its error');
       // setMsgErr(true);
     } else {
-      axios
-        .post('/api/v1/appointments', {
-          identity_number: 406043380,
-          name: 'ibrahim',
-          date: `${thisYear}-${thisMonth + 1}-${currentDay}`,
-          time,
-          user_id: 9,
-          doctor_id: 30,
-        })
-        .then((res) => {
-          alert(res.data.insert);
-        });
+      let dataAppint = {
+        identity_number: 406043380,
+        name: 'ibrahim',
+        date: `${thisYear}-${thisMonth + 1}-${currentDay}`,
+        time,
+        user_id: 9,
+        doctor_id: 30,
+      };
+      let sendAppoint = await axios.post('/api/v1/appointments', dataAppint);
+      alert(sendAppoint.data.insert);
     }
   };
 
@@ -92,14 +90,6 @@ export default function Book({ navigation }) {
 
     dayesTit.map((el) => dds.unshift(el));
   };
-
-  // if (nameDay === 'Sun') previousDays(0);
-  // if (nameDay === 'Mon') previousDays(1);
-  // if (nameDay === 'Tue') previousDays(2);
-  // if (nameDay === 'Wed') previousDays(3);
-  // if (nameDay === 'Thu') previousDays(4);
-  // if (nameDay === 'Fri') previousDays(5);
-  // if (nameDay === 'Sat') previousDays(6);
 
   switch (nameDay) {
     case 'Sun':
@@ -161,12 +151,13 @@ export default function Book({ navigation }) {
     setTime('');
   };
 
-  useEffect(() => {
-    const url = 'http://localhost:5000/api/v1/books/30';
-    axios.get(url).then((res) => {
-      setData(res.data);
+  const getAppointmentsUser = async () => {
+      let getAppointsUser = await axios.get('/api/v1/books/30');
+      setData(getAppointsUser.data);
       setCurrentDay(thisSDay);
-    });
+  };
+  useEffect(() => {
+    getAppointmentsUser();
   }, []);
 
   useEffect(() => {
@@ -221,7 +212,9 @@ export default function Book({ navigation }) {
             styles.btns_dater,
             clas === 'none' ? { backgroundColor: 'rgb(214, 214, 214)' } : {},
             clas === 'old' ? { backgroundColor: '' } : {},
-            num === currentDay && clas !== 'old' ? { backgroundColor: '#5ce058' } : {},
+            num === currentDay && clas !== 'old'
+              ? { backgroundColor: '#5ce058' }
+              : {},
           ]}
           onPress={() => resetDate(num)}
         >
@@ -264,9 +257,9 @@ export default function Book({ navigation }) {
               size={40}
             />
           </TouchableOpacity>
-            <Text>{thisYear}</Text>
-            <Text> ,</Text>
-            <Text>{thisMonth + 1}</Text>
+          <Text>{thisYear}</Text>
+          <Text> ,</Text>
+          <Text>{thisMonth + 1}</Text>
           <TouchableOpacity style={styles.bowl_Svg} onPress={nextMonth}>
             <FontAwesome
               name={'angle-right'}
@@ -280,12 +273,14 @@ export default function Book({ navigation }) {
           <FlatList
             data={dds}
             numColumns={7}
+            keyExtractor={(item, index) => index.toString()}
             renderItem={(item) => renderFlatBOx(item)}
           />
         </View>
 
         <View style={styles.times_day_Availabe}>
-          {timesArray.map((tm, i) => (
+          {timesArray.length ? timesArray.map((tm, i) => (
+         
             <TouchableOpacity
               onPress={previousMonth}
               disabled={tm.clas === 'none' ? true : false}
@@ -303,7 +298,7 @@ export default function Book({ navigation }) {
                 <Text>{tm.time ? tm.time : ''}</Text>
               </View>
             </TouchableOpacity>
-          ))}
+          )) : null}
         </View>
 
         <View style={styles.msg_select_appointemts}>
@@ -322,7 +317,7 @@ export default function Book({ navigation }) {
 
         <Button
           title="Go to Landing"
-          onPress={() => navigation.navigate('Landing')}
+          onPress={() => navigation.navigate('Landingpage')}
         />
       </View>
     </View>

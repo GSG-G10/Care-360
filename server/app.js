@@ -9,7 +9,6 @@ const cookieParser = require('cookie-parser');
 const router = require('./routes');
 
 const app = express();
-// app.use(cors({ origin: 'http://localhost:19006' }));
 app.options('*', cors());
 
 const {
