@@ -4,7 +4,6 @@ import {
   View,
   Image,
   StyleSheet,
-  TouchableHighlight,
 } from 'react-native';
 import { Card, Title } from 'react-native-paper';
 import { color } from '../../utils/style/color';
