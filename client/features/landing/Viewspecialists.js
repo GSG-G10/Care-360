@@ -19,7 +19,7 @@ export const Viewspecialists = ({navigation}) => {
           List Your Physicians You can access your medical records and
           appointments.
         </Text>
-        <TouchableHighlight underlayColor="" onPress={() => navigation.navigate('Home')}>
+        <TouchableHighlight underlayColor="" onPress={() => navigation.navigate('SpecialistCard', {specialityReady: ''})}>
           <View style={styles.btn}>
             <Text style={styles.countText}>View Specialists</Text>
           </View>

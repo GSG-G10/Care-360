@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import {
   View,
   Text,
@@ -8,19 +9,27 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
+
 import { Avatar, Button } from 'react-native-paper';
 import axioscreate from '../../../components/axioscreate';
 import { Search } from '../../../components/ui';
 const SpecialistCard = () => {
+import { Footer } from '../../../components/Footer';
+import { Header } from '../../../components/Header';
+
+const SpecialistCard = ({route, navigation}) => {
+  const { specialityReady } = route.params;
   const [specialists, setSpecialists] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(
-    'There is no events with this filter',
-  );
+  const [errorMessage, setErrorMessage] = useState('There is no events with this filter');
 
   const getSpecialists = async () => {
     try {
-      const { data } = await axioscreate.get('/api/v1/specialists');
-      setSpecialists(data);
+      let url = '/api/v1/specialists';
+      if (specialityReady) {
+        url = `/api/v1/specialists?speciality=${specialityReady}`;
+      }
+      const { data } = await axioscreate.get(url);
+      setSpecialists( specialityReady ? data.data : data);
     } catch {
       // setErrorMessage(err.status);
     }
@@ -31,57 +40,15 @@ const SpecialistCard = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <ScrollView>
       <View style={styles.container}>
-        <Search />
-        {specialists.length ? (
-          specialists.map((specialist) => {
-            return (
-              <View style={styles.cardContainer} key={specialist.id}>
-                <View style={styles.doctorContainer}>
-                  <View style={styles.avatarContainer}>
-                    <Avatar.Image
-                      size={65}
-                      source={{ uri: specialist.image }}
-                    />
-                  </View>
-                  <View>
-                    <Text style={styles.headerFont}>{specialist.name}</Text>
-                    <Text style={styles.specialityFont}>
-                      {specialist.specialty}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.buttonsContainer}>
-                  <TouchableOpacity>
-                    <Button
-                      style={styles.buttons}
-                      icon="account-outline"
-                      mode="outlined"
-                      color="#022752"
-                    >
-                      <Text style={styles.buttonsFont}> View Profile</Text>
-                    </Button>
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                  <Button
-                    style={styles.buttons}
-                    icon="calendar"
-                    mode="contained"
-                    color="#FFB803"
-                  >
-                    <Text style={styles.buttons}>Book Now</Text>
-                  </Button>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            );
-          })
-        ) : (
-          <Text>Hello</Text>
-        )}
+<<<<<<< HEAD
       </View>
     </ScrollView>
+    <Footer navigation={navigation} />
+    </>
   );
 };
 
@@ -95,6 +62,13 @@ const styles = StyleSheet.create({
     width:'50%',
     backgroundColor:'green'
 
+  },
+
+  loading:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 300,
+      fontSize: 30,
   },
   cardContainer: {
     flexDirection: 'row',

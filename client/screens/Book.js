@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-export default function Book({ navigation }) {
+export default function Book({ route, navigation }) {
+  const { idUser } = route.params;
   const dds = [];
   const datess = new Date();
   const thisSDay = datess.getDate();
@@ -52,7 +53,6 @@ export default function Book({ navigation }) {
   const handlePost = async () => {
     if (!currentDay || !time) {
       alert('all chooses');
-      console.log('its error');
       // setMsgErr(true);
     } else {
       let dataAppint = {
@@ -152,9 +152,10 @@ export default function Book({ navigation }) {
   };
 
   const getAppointmentsUser = async () => {
-      let getAppointsUser = await axios.get('/api/v1/books/30');
-      setData(getAppointsUser.data);
-      setCurrentDay(thisSDay);
+    let getAppointsUser = await axios.get(`/api/v1/books/${idUser}`);
+    // let getAppointsUser = await axios.get(`/api/v1/books/30`);
+    setData(getAppointsUser.data);
+    setCurrentDay(thisSDay);
   };
   useEffect(() => {
     getAppointmentsUser();
@@ -257,9 +258,9 @@ export default function Book({ navigation }) {
               size={40}
             />
           </TouchableOpacity>
-          <Text>{thisYear}</Text>
-          <Text> ,</Text>
-          <Text>{thisMonth + 1}</Text>
+          <Text style={styles.titleDaterBOok}>{thisYear}</Text>
+          <Text style={styles.titleDaterBOok}> ,</Text>
+          <Text style={styles.titleDaterBOok}>{thisMonth + 1}</Text>
           <TouchableOpacity style={styles.bowl_Svg} onPress={nextMonth}>
             <FontAwesome
               name={'angle-right'}
@@ -279,26 +280,29 @@ export default function Book({ navigation }) {
         </View>
 
         <View style={styles.times_day_Availabe}>
-          {timesArray.length ? timesArray.map((tm, i) => (
-         
-            <TouchableOpacity
-              onPress={previousMonth}
-              disabled={tm.clas === 'none' ? true : false}
-              key={i}
-              onPress={() => setTime(tm.time)}
-              style={[
-                styles.btns_times,
-                tm.clas === 'none'
-                  ? { backgroundColor: 'rgb(204, 204, 204)' }
-                  : {},
-                tm.clas === 'on' ? { backgroundColor: 'rgb(92, 224, 88)' } : {},
-              ]}
-            >
-              <View>
-                <Text>{tm.time ? tm.time : ''}</Text>
-              </View>
-            </TouchableOpacity>
-          )) : null}
+          {timesArray.length
+            ? timesArray.map((tm, i) => (
+                <TouchableOpacity
+                  onPress={previousMonth}
+                  disabled={tm.clas === 'none' ? true : false}
+                  key={i}
+                  onPress={() => setTime(tm.time)}
+                  style={[
+                    styles.btns_times,
+                    tm.clas === 'none'
+                      ? { backgroundColor: 'rgb(204, 204, 204)' }
+                      : {},
+                    tm.clas === 'on'
+                      ? { backgroundColor: 'rgb(92, 224, 88)' }
+                      : {},
+                  ]}
+                >
+                  <View>
+                    <Text>{tm.time ? tm.time : ''}</Text>
+                  </View>
+                </TouchableOpacity>
+              ))
+            : null}
         </View>
 
         <View style={styles.msg_select_appointemts}>
@@ -315,10 +319,16 @@ export default function Book({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <Button
-          title="Go to Landing"
-          onPress={() => navigation.navigate('Landingpage')}
-        />
+        <View
+          style={{
+            marginTop: 20 ,
+          }}
+        >
+          <Button
+            title="cancle"
+            onPress={() => navigation.goBack()}
+          />
+        </View>
       </View>
     </View>
   );
@@ -336,6 +346,7 @@ const styles = StyleSheet.create({
   test_selected_years: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 10,
     width: '100%',
   },
@@ -346,8 +357,8 @@ const styles = StyleSheet.create({
   },
 
   bowl_Svg: {
-    width: 33,
-    height: 33,
+    width: 43,
+    height: 43,
     backgroundColor: 'rgb(240, 240, 240)',
     borderRadius: 50,
     alignItems: 'center',
@@ -384,7 +395,7 @@ const styles = StyleSheet.create({
 
   bowl_circle_days: {
     flexDirection: 'row',
-    width: 'auto',
+    width: '90%',
     justifyContent: 'center',
   },
 
@@ -395,7 +406,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 3,
+    margin: 7,
   },
 
   times_day_Availabe: {
@@ -419,7 +430,6 @@ const styles = StyleSheet.create({
   msg_select_appointemts: {
     marginTop: 10,
   },
-
   btn_Sendappoint: {
     marginTop: 20,
     backgroundColor: '#ffb803',
@@ -427,5 +437,9 @@ const styles = StyleSheet.create({
     height: 33,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  titleDaterBOok: {
+    fontSize: 40,
   },
 });

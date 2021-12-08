@@ -5,10 +5,10 @@ import { ListItem, Avatar, Icon } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Getspecialists = ({ route, navigation }) => {
-  const { speciality: special } = route.params;
+  const { specialityReady } = route.params;
   const [expanded, setExpanded] = useState('');
-  const [speciality, setSpeciality] = useState(special);
-  const [data, setData] = useState('');
+  const [speciality, setSpeciality] = useState(specialityReady);
+  const [data, setData] = useState([]);
   const Specialities = [
     'Dentists',
     'General Doctor',
@@ -20,52 +20,22 @@ export const Getspecialists = ({ route, navigation }) => {
 
   const fetchAllData = async () => {
     let url = '/api/v1/specialists';
-    if (speciality) {
-      url = `/api/v1/specialists?speciality=${speciality}`;
+    if (specialityReady) {
+      url = `/api/v1/specialists?speciality=${specialityReady}`;
     }
     const response = await axios.get(url);
     if (!response.data) {
       return setData([]);
     }
-
-    setData(response.data.data);
+    setData(response.data);
   };
   useEffect(() => {
     fetchAllData();
   }, [speciality]);
 
-  console.log(data);
   return (
-    <View>
-      <ListItem.Accordion
-        content={
-          <>
-            <MaterialCommunityIcons name="filter-variant" size={24} color="black" />
-            <ListItem.Content>
-              <ListItem.Title>Speciality</ListItem.Title>
-            </ListItem.Content>
-          </>
-        }
-        isExpanded={expanded}
-        onPress={() => {
-          setExpanded(!expanded);
-        }}
-      >
-        {Specialities.map((l, i) => (
-          <ListItem
-            key={i}
-            onPress={() => {
-              setExpanded(!expanded);
-              setSpeciality(l);
-            }}
-            bottomDivider
-          >
-            <ListItem.Content>
-              <ListItem.Title>{l}</ListItem.Title>
-            </ListItem.Content>
-          </ListItem>
-        ))}
-      </ListItem.Accordion>
+    <View style={{marginTop: 80}}>
+
       {data.length ? (
         data.map((e, i) => {
           return (

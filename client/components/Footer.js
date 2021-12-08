@@ -1,9 +1,10 @@
+/* eslint-disable */
 import React from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { color } from '../utils/style/color';
 
-export const Footer = () => {
+export const Footer = ({navigation}) => {
   return (
     <View style={styles.footer}>
       <View style={styles.footerComponent}>
@@ -11,13 +12,13 @@ export const Footer = () => {
           name="home"
           style={styles.icon}
           color="#fff"
-          onPress={() => null}
+          onPress={()=>navigation.navigate('Landingpage')}
         />
         <Icon
           name="search"
           style={styles.icon}
           color="#fff"
-          onPress={() => null}
+          onPress={()=> navigation.navigate('SpecialistCard', {specialityReady: ''})}
         />
       </View>
     </View>
