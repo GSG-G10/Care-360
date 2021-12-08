@@ -16,7 +16,6 @@ import SearchSpecialist from '../Components/Search-specialist';
 
 const SpecialistCard = ({route, navigation}) => {
   const { specialityReady } = route.params;
-  console.log(specialityReady);
   const [specialists, setSpecialists] = useState([]);
   const [errorMessage, setErrorMessage] = useState(
     'There is no events with this filter',
@@ -26,15 +25,12 @@ const SpecialistCard = ({route, navigation}) => {
     try {
       let url = '/api/v1/specialists';
       if (specialityReady) {
-        console.log(specialityReady);
         url = `/api/v1/specialists?speciality=${specialityReady}`;
       }
       const { data } = await axioscreate.get(url);
-      console.log('-----------');
-      console.log(data.data);
-      setSpecialists(data.data);
+      setSpecialists( specialityReady ? data.data : data);
     } catch {
-      setErrorMessage(err.status);
+      // setErrorMessage(err.status);
     }
   };
 
@@ -47,7 +43,7 @@ const SpecialistCard = ({route, navigation}) => {
     <Header />
     <ScrollView>
       <View style={styles.container}>
-        <SearchSpecialist/>
+        <SearchSpecialist  />
         {specialists.length ? (
           specialists.map((specialist) => {
             return (
@@ -93,7 +89,9 @@ const SpecialistCard = ({route, navigation}) => {
             );
           })
         ) : (
-          <Text>Hello</Text>
+          <View style={styles.loading}>
+          <Text>Loading..</Text>
+          </View>
         )}
       </View>
     </ScrollView>
@@ -112,6 +110,13 @@ const styles = StyleSheet.create({
     width:'50%',
     backgroundColor:'green'
 
+  },
+
+  loading:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 300,
+      fontSize: 30,
   },
   cardContainer: {
     flexDirection: 'row',
