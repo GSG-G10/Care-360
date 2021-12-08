@@ -21,7 +21,6 @@ export const Getspecialists = ({ route, navigation }) => {
   const fetchAllData = async () => {
     let url = '/api/v1/specialists';
     if (specialityReady) {
-      console.log(specialityReady);
       url = `/api/v1/specialists?speciality=${specialityReady}`;
     }
     const response = await axios.get(url);

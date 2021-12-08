@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import {
-  Button,
   StatusBar,
   Platform,
   StyleSheet,
-  Text,
   View,
   TouchableOpacity,
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import Feather from 'react-native-vector-icons/Feather';
+import HomeDash from './dash/HomeDash';
+import TableUsers from './dash/TableUsers';
+import TableDoctors from './dash/TableDoctors';
 
 function Dashboard() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -49,27 +48,12 @@ function Dashboard() {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.bowl_Cards}>
-        <TouchableOpacity onPress={null} style={styles.bowl_Card_in}>
-          <FontAwesome name={'users'} style={styles.svg_Arrows} size={40} />
-          <Text style={styles.title_cardbowl}>Total Users</Text>
-          <Text style={styles.countCard}>2507</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={null} style={styles.bowl_Card_in}>
-          <FontAwesome5
-            name={'user-shield'}
-            style={styles.svg_Arrows}
-            size={40}
-          />
-          <Text style={styles.title_cardbowl}>Total Specialists</Text>
-          <Text style={styles.countCard}>2507</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={null} style={styles.bowl_Card_in}>
-          <Feather name={'plus-circle'} style={styles.svg_Arrows} size={40} />
-          <Text style={styles.title_cardbowl}>Add Doctor</Text>
-          <Text style={styles.countCard}>2507</Text>
-        </TouchableOpacity>
-      </View>
+{
+  currentPage === 'home' ? <HomeDash /> :   currentPage === 'users' ? <TableUsers /> :
+  currentPage === 'doctor' ? <TableDoctors /> : null
+}
+          
+  
     </View>
   );
 }
@@ -108,27 +92,4 @@ const styles = StyleSheet.create({
     color: '#200E32',
   },
 
-  bowl_Cards: {
-    alignItems: 'center',
-    marginTop: 40,
-  },
-  bowl_Card_in: {
-    backgroundColor: '#EDEDED',
-    width: '90%',
-    height: 70,
-    borderRadius: 5,
-    marginTop: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-  title_cardbowl: {
-    fontSize: 17,
-  },
-  countCard: {
-    fontSize: 22,
-  },
-  svg_Arrows: {
-    color: '#127984',
-  },
 });
