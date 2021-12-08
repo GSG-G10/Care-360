@@ -53,7 +53,6 @@ export default function Book({ route, navigation }) {
   const handlePost = async () => {
     if (!currentDay || !time) {
       alert('all chooses');
-      console.log('its error');
       // setMsgErr(true);
     } else {
       let dataAppint = {

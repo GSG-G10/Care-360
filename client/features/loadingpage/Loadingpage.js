@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   img: {
     width: '100%',
-    height: '100%',
+    height: '90%',
   },
   text: {
     fontSize: 15,
