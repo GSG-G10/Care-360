@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: 'initial',
     alignItems: 'center',
     justifyContent: 'space-around',
-    padding: '0.5rem',
+    padding: '1.2rem',
   },
   textContainer: {},
   text: {

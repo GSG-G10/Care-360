@@ -11,7 +11,6 @@ import {
 import { Avatar, Button } from 'react-native-paper';
 import axioscreate from '../../../components/axioscreate';
 import { Search } from '../../../components/ui';
-
 const SpecialistCard = () => {
   const [specialists, setSpecialists] = useState([]);
   const [errorMessage, setErrorMessage] = useState(

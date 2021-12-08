@@ -7,12 +7,13 @@ import Navbar from './components/Navbar';
 import Book from './screens/Book';
 import Navigation from './navigation/Navigation';
 import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
-
-
+import { NativeRouter, Route, Link } from "react-router-native";
 export default function App() {
   return (
     <>
-     <SpecialistCard />
+     <NativeRouter>
+     <Navbar />
+     </NativeRouter>
     </>
   );
 }

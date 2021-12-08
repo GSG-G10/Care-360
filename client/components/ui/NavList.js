@@ -35,7 +35,8 @@ function NavList() {
 const styles = StyleSheet.create({
     container: {
       width: '100%',
-      padding: '1.1rem 0',
+      padding: '1.5rem 0',
+      marginBottom: '1.5rem',
     }
 })
 export default NavList
