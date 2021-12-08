@@ -44,7 +44,6 @@ const SpecialistCard = ({route, navigation}) => {
     <Header />
     <ScrollView>
       <View style={styles.container}>
-<<<<<<< HEAD
       </View>
     </ScrollView>
     <Footer navigation={navigation} />
