@@ -10,9 +10,13 @@ import {
 } from 'react-native';
 import { Avatar, Button } from 'react-native-paper';
 import axioscreate from '../../../components/axioscreate';
+import { Footer } from '../../../components/Footer';
+import { Header } from '../../../components/Header';
 import SearchSpecialist from '../Components/Search-specialist';
 
-const SpecialistCard = () => {
+const SpecialistCard = ({route, navigation}) => {
+  const { specialityReady } = route.params;
+  console.log(specialityReady);
   const [specialists, setSpecialists] = useState([]);
   const [errorMessage, setErrorMessage] = useState(
     'There is no events with this filter',
@@ -20,8 +24,15 @@ const SpecialistCard = () => {
 
   const getSpecialists = async () => {
     try {
-      const { data } = await axioscreate.get('/api/v1/specialists');
-      setSpecialists(data);
+      let url = '/api/v1/specialists';
+      if (specialityReady) {
+        console.log(specialityReady);
+        url = `/api/v1/specialists?speciality=${specialityReady}`;
+      }
+      const { data } = await axioscreate.get(url);
+      console.log('-----------');
+      console.log(data.data);
+      setSpecialists(data.data);
     } catch {
       setErrorMessage(err.status);
     }
@@ -32,6 +43,8 @@ const SpecialistCard = () => {
   }, []);
 
   return (
+    <>
+    <Header />
     <ScrollView>
       <View style={styles.container}>
         <SearchSpecialist/>
@@ -70,6 +83,7 @@ const SpecialistCard = () => {
                     icon="calendar"
                     mode="contained"
                     color="#FFB803"
+                  onPress={()=> navigation.navigate('Book', {idUser: specialist.id})}
                   >
                     <Text style={styles.buttons}>Book Now</Text>
                   </Button>
@@ -83,6 +97,8 @@ const SpecialistCard = () => {
         )}
       </View>
     </ScrollView>
+    <Footer navigation={navigation} />
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { ListItem, Avatar, Icon } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Getspecialists = ({ route, navigation }) => {
-  const { speciality: special } = route.params;
+  const { specialityReady } = route.params;
   const [expanded, setExpanded] = useState('');
   const [speciality, setSpeciality] = useState(special);
   const [data, setData] = useState('');
@@ -20,8 +20,9 @@ export const Getspecialists = ({ route, navigation }) => {
 
   const fetchAllData = async () => {
     let url = '/api/v1/specialists';
-    if (speciality) {
-      url = `/api/v1/specialists?speciality=${speciality}`;
+    if (specialityReady) {
+      console.log(specialityReady);
+      url = `/api/v1/specialists?speciality=${specialityReady}`;
     }
     const response = await axios.get(url);
     if (!response.data) {
@@ -34,7 +35,6 @@ export const Getspecialists = ({ route, navigation }) => {
     fetchAllData();
   }, [speciality]);
 
-  console.log(data);
   return (
     <View>
       <ListItem.Accordion
