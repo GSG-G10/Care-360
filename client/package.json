@@ -23,14 +23,9 @@
     "react-native-paper": "^4.10.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
-<<<<<<< HEAD
     "react-native-vector-icons": "^9.0.0",
     "react-native-web": "0.17.1",
     "react-router-native": "^6.0.2"
-=======
-    "react-native-vector-icons": "^7.1.0",
-    "react-native-web": "0.17.1"
->>>>>>> 5e76d8a106bbc0ca13d44c97226c6582c8c70459
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
