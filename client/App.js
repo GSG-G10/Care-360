@@ -8,6 +8,7 @@ import Dashboard from './screens/Dashboard';
 import SpecialistCard from './features/Specialists/Screen/Specialist-view';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
+import Addadoctor from './screens/dash/Addadoctor';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ function RootStack() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Landingpage"
+        initialRouteName="Addadoctor"
       >
         <Stack.Screen name="Landingpage" component={Landingpage} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
@@ -25,6 +26,7 @@ function RootStack() {
         <Stack.Screen name="Book" component={Book} />
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />
         <Stack.Screen name="Getspecialists" component={Getspecialists} />
+        <Stack.Screen name="Addadoctor" component={Addadoctor} />
       </Stack.Navigator>
     </NavigationContainer>
   );
