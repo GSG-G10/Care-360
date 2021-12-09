@@ -12,15 +12,12 @@ import FormButton from '../components/FormButton';
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image
         source={require('../assets/logo.png')}
         style={styles.logo}
       />
-    
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
@@ -30,7 +27,6 @@ const LoginScreen = ({navigation}) => {
         autoCapitalize="none"
         autoCorrect={false}
       />
-
       <FormInput
         labelValue={password}
         onChangeText={(userPassword) => setPassword(userPassword)}
@@ -50,7 +46,7 @@ const LoginScreen = ({navigation}) => {
 
       <TouchableOpacity
         style={styles.forgotButton}
-        onPress={() => navigation.navigate('Signup')}>
+        onPress={() => navigation.navigate('SignupScreen')}>
         <Text style={styles.navButtonText}>
           Don't have an acount? Create here
         </Text>
@@ -76,7 +72,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   text: {
-    fontFamily: 'Kufam-SemiBoldItalic',
     fontSize: 28,
     marginBottom: 10,
     color: '#051d5f',
@@ -91,6 +86,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '500',
     color: '#2e64e5',
-    fontFamily: 'Lato-Regular',
   },
 });

@@ -13,11 +13,11 @@ import axioscreate from '../components/axioscreate';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import ListDoctors from '../components/List';
+import { List } from 'react-native-paper';
 
-const Specialist = ({navigation,route}) => {
+const Specialist = ({ navigation, route }) => {
   const [specialist, setSpecialistInformations] = useState([]);
   const { doctorId } = route.params;
-
   const getSpecialist = async () => {
     try {
       const { data } = await axioscreate.get(`/api/v1/doctor/${doctorId}`);
@@ -31,7 +31,7 @@ const Specialist = ({navigation,route}) => {
 
   return (
     <>
-      <Header />
+      <Header navigation={navigation} />
       <ScrollView>
         <View style={styles.mainContainer}>
           <View style={styles.container}>
@@ -77,27 +77,55 @@ const Specialist = ({navigation,route}) => {
         <View style={styles.details}>
           <Text style={styles.detailsFont}>Details</Text>
         </View>
-        <View style={styles.listContainer}>
-          <ListDoctors
-            title="Education"
-            icon="school-outline"
-            details={specialist.education}
-          />
-        </View>
-        <View style={styles.listContainer}>
-          <ListDoctors
-            title="Experience"
-            icon="text-box-check-outline"
-            details={specialist.experience}
-          />
-        </View>
-        <View style={styles.listContainer}>
-          <ListDoctors
-            title="Treatments"
-            icon="file-edit-outline"
-            details={specialist.treatments}
-          />
-        </View>
+        {
+          <View style={styles.bowlAllsLines}>
+            <List.AccordionGroup>
+              <List.Accordion
+                title="Education"
+                titleStyle={{
+                  fontWeight: 'bold',
+                  color: '#022752',
+                  fontSize: 18,
+                }}
+                id="1"
+                style={styles.listContainer2}
+                left={(props) => <List.Icon {...props} icon="school-outline" />}
+              >
+                <ListDoctors details={specialist.education} />
+              </List.Accordion>
+              <List.Accordion
+                title="Experience"
+                titleStyle={{
+                  fontWeight: 'bold',
+                  color: '#022752',
+                  fontSize: 18,
+                }}
+                id="2"
+                style={styles.listContainer2}
+                left={(props) => (
+                  <List.Icon {...props} icon="text-box-check-outline" />
+                )}
+              >
+                <ListDoctors details={specialist.experience} />
+              </List.Accordion>
+              <List.Accordion
+                title="Treatments"
+                id="3"
+                style={styles.listContainer2}
+                titleStyle={{
+                  fontWeight: 'bold',
+                  color: '#022752',
+                  fontSize: 18,
+                }}
+                left={(props) => (
+                  <List.Icon {...props} icon="file-edit-outline" />
+                )}
+              >
+                <ListDoctors details={specialist.treatments} />
+              </List.Accordion>
+            </List.AccordionGroup>
+          </View>
+        }
       </ScrollView>
       <Footer navigation={navigation} />
     </>
@@ -162,10 +190,30 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: '#022752',
   },
+
+  bowlTitles: {
+    backgroundColor: '#eee',
+    marginTop: 10,
+  },
+
   listContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     height: 120,
+  },
+
+  bowlAllsLines: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  listContainer2: {
+    backgroundColor: '#DCE4E8',
+    width: 350,
+    height: 55,
+    justifyContent: 'center',
+    borderRadius: 5,
+    marginTop: 15,
   },
 });
 
