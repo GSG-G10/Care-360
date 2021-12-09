@@ -19,7 +19,7 @@ export const Landingpage = ({ navigation }) => {
     <View style={{ flex: 1 }}>
       {loaded ? (
         <View style={{ flex: 1 }}>
-          <Header />
+          <Header navigation={navigation} />
           <ScrollView>
             <Viewspecialists navigation={navigation} />
             <Popularspecialities navigation={navigation} />
