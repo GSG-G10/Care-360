@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Landingpage } from './features/landing/Landingpage';
+import { Landingpage } from './Features/landing/Landingpage';
 import Book from './screens/Book';
-import { Getspecialists } from './features/specialities/Getspecialists';
 import Dashboard from './screens/Dashboard';
-import SpecialistCard from './features/Specialists/Screen/Specialist-view';
+import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import Addadoctor from './screens/dash/Addadoctor';
-
+import Navbar from "./components/Navbar"
+import Appointment from './screens/Appointment';
+import Specialist from './screens/Specialist';
 const Stack = createNativeStackNavigator();
 
 function RootStack() {
@@ -27,6 +28,9 @@ function RootStack() {
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />
         <Stack.Screen name="Getspecialists" component={Getspecialists} />
         <Stack.Screen name="Addadoctor" component={Addadoctor} />
+        <Stack.Screen name="Navbar" component={Navbar} />
+        <Stack.Screen name="Appointment" component={Appointment} />
+        <Stack.Screen name='Specialist' component={Specialist} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,11 +3,13 @@ import { StyleSheet, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { ListItem, Avatar, Icon } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import axioscreate from '../../../components/axioscreate';
+import axioscreate from '../../components/axioscreate';
 
-const SearchSpecialist = ({ setSpecialists }) => {
+const SearchSpecialist = () => {
+
   const [searchQuery, setSearchQuery] = React.useState('');
   const [expanded, setExpanded] = React.useState('');
+  const [speciality, setSpeciality] = React.useState('');
 
   const Specialities = [
     'Dentists',
@@ -18,25 +20,31 @@ const SearchSpecialist = ({ setSpecialists }) => {
     'Ophthalmologist',
   ];
 
-  const fetchAllData = async (value, type) => {
-    const { data } = await axioscreate.get(
-      `/api/v1/specialists?${type}=${value}`,
-    );
-    setSpecialists(data.data);
+  const fetchAllData = async () => {
+    const response = await axioscreate.get(`/api/v1/specialists?speciality=${speciality}`);
+    if (!response.data) {
+      // return setSpecialists([]);
+    }
+    // setSpecialists(response.data);
   };
+
+  const onChangeSearch = (query) => setSearchQuery(query);
+  React.useEffect(() => {
+    fetchAllData();
+  }, [speciality]);
 
   return (
     <View>
       <Searchbar
         placeholder="Search doctors"
-        onChangeText={(query) => setSearchQuery(query)}
+        onChangeText={onChangeSearch}
         value={searchQuery}
-        onSubmitEditing={() => fetchAllData(searchQuery, 'name')}
         iconColor="#022752"
         style={styles.bowlSearch}
       />
+
       <ListItem.Accordion
-        style={styles.bowlFilter}
+      style={styles.bowlFilter}
         content={
           <>
             <MaterialCommunityIcons
@@ -59,7 +67,7 @@ const SearchSpecialist = ({ setSpecialists }) => {
             key={i}
             onPress={() => {
               setExpanded(!expanded);
-              fetchAllData(l, 'speciality');
+              setSpeciality(l);
             }}
             bottomDivider
           >

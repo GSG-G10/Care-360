@@ -16,10 +16,10 @@ import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
 import SearchSpecialist from '../Components/Search-specialist';
 
-const SpecialistCard = ({route, navigation}) => {
+const SpecialistCard = ({ route, navigation }) => {
   const { specialityReady } = route.params;
   const [specialists, setSpecialists] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('There is no events with this filter');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const getSpecialists = async () => {
     try {
@@ -28,9 +28,9 @@ const SpecialistCard = ({route, navigation}) => {
         url = `/api/v1/specialists?speciality=${specialityReady}`;
       }
       const { data } = await axioscreate.get(url);
-      setSpecialists( specialityReady ? data.data : data);
+      setSpecialists(specialityReady ? data.data : data);
     } catch {
-      // setErrorMessage(err.status);
+      setErrorMessage('There is no events with this filter');
     }
   };
 
@@ -40,62 +40,70 @@ const SpecialistCard = ({route, navigation}) => {
 
   return (
     <>
-    <Header />
-    <ScrollView>
-      <View style={styles.container}>
-        <SearchSpecialist  />
-        {specialists.length ? (
-          specialists.map((specialist) => {
-            return (
-              <View style={styles.cardContainer} key={specialist.id}>
-                <View style={styles.doctorContainer}>
-                  <View style={styles.avatarContainer}>
-                    <Avatar.Image
-                      size={65}
-                      source={{ uri: specialist.image }}
-                    />
+      <Header navigation={navigation} />
+      <ScrollView>
+        <View style={styles.container}>
+          <SearchSpecialist setSpecialists={setSpecialists} />
+          {specialists.length ? (
+            specialists.map((specialist) => {
+              return (
+                <View style={styles.cardContainer} key={specialist.id}>
+                  <View style={styles.doctorContainer}>
+                    <View style={styles.avatarContainer}>
+                      <Avatar.Image
+                        size={65}
+                        source={{ uri: specialist.image }}
+                      />
+                    </View>
+                    <View>
+                      <Text style={styles.headerFont}>{specialist.name}</Text>
+                      <Text style={styles.specialityFont}>
+                        {specialist.specialty}
+                      </Text>
+                    </View>
                   </View>
-                  <View>
-                    <Text style={styles.headerFont}>{specialist.name}</Text>
-                    <Text style={styles.specialityFont}>
-                      {specialist.specialty}
-                    </Text>
+                  <View style={styles.buttonsContainer}>
+                    <TouchableOpacity>
+                      <Button
+                        style={styles.buttons}
+                        icon="account-outline"
+                        mode="outlined"
+                        color="#022752"
+                        onPress={() =>
+                          navigation.navigate('Specialist', {
+                            doctorId: specialist.id,
+                          })
+                        }
+                      >
+                        <Text style={styles.buttonsFont}> View Profile</Text>
+                      </Button>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                      <Button
+                        style={styles.buttons}
+                        icon="calendar"
+                        mode="contained"
+                        color="#FFB803"
+                        onPress={() =>
+                          navigation.navigate('Book', { idUser: specialist.id })
+                        }
+                      >
+                        <Text style={styles.buttons}>Book Now</Text>
+                      </Button>
+                    </TouchableOpacity>
                   </View>
                 </View>
-                <View style={styles.buttonsContainer}>
-                  <TouchableOpacity>
-                    <Button
-                      style={styles.buttons}
-                      icon="account-outline"
-                      mode="outlined"
-                      color="#022752"
-                    >
-                      <Text style={styles.buttonsFont}> View Profile</Text>
-                    </Button>
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                  <Button
-                    style={styles.buttons}
-                    icon="calendar"
-                    mode="contained"
-                    color="#FFB803"
-                  onPress={()=> navigation.navigate('Book', {idUser: specialist.id})}
-                  >
-                    <Text style={styles.buttons}>Book Now</Text>
-                  </Button>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            );
-          })
-        ) : (
-          <View style={styles.loading}>
-          <Text>Loading..</Text>
-          </View>
-        )}
-      </View>
-    </ScrollView>
-    <Footer navigation={navigation} />
+              );
+            })
+          ) : (
+            <View style={styles.loading}>
+              <Text>Loading..</Text>
+              {errorMessage ? <Text>{errorMessage}</Text> : null}
+            </View>
+          )}
+        </View>
+      </ScrollView>
+      <Footer navigation={navigation} />
     </>
   );
 };
@@ -107,16 +115,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   search: {
-    width:'50%',
-    backgroundColor:'green'
-
+    width: '50%',
+    backgroundColor: 'green',
   },
 
-  loading:{
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: 300,
-      fontSize: 30,
+  loading: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 300,
+    fontSize: 30,
   },
   cardContainer: {
     flexDirection: 'row',
