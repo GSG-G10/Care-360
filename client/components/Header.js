@@ -3,7 +3,7 @@ import { Image, View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { color } from '../utils/style/color';
 
-export const Header = () => {
+export const Header = ({ navigation }) => {
   return (
     <View style={styles.header}>
       <View style={styles.headerComponent}>
@@ -15,7 +15,7 @@ export const Header = () => {
           style={styles.icon}
           name="menu"
           color="#fff"
-          onPress={() => null}
+          onPress={() => navigation.navigate('Navbar')}
         />
       </View>
     </View>
