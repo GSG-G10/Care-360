@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Button,
   View,
   Text,
   Image,
@@ -19,7 +18,7 @@ export const Viewappointment = ({navigation}) => {
           List Your Physicians You can access your medical records and
           appointments.
         </Text>
-        <TouchableHighlight underlayColor="" onPress={() => navigation.navigate('appointment')}>
+        <TouchableHighlight underlayColor="" onPress={() => navigation.navigate('Appointment')}>
           <View style={styles.btn}>
             <Text style={styles.countText}>View Appointments</Text>
           </View>

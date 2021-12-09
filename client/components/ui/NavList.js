@@ -17,7 +17,7 @@ function NavList({ navigation }) {
     {
       title: 'Appointment',
       icon: 'edit',
-      link: 'appointment',
+      link: 'Appointment',
     },
   ];
 

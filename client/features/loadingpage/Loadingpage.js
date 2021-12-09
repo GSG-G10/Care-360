@@ -10,8 +10,7 @@ export const Loadingpage = () => {
           <Text style={styles.text}>Quality care on your Schedule</Text>
       </View>
       <View>
-      
-      <ActivityIndicator size="large" color="#fff" />
+      <ActivityIndicator size="large" color="#022752" />
       </View>
     </View>
   );
