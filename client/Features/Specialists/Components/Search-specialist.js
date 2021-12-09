@@ -5,11 +5,9 @@ import { ListItem, Avatar, Icon } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import axioscreate from '../../../components/axioscreate';
 
-const SearchSpecialist = () => {
-
+const SearchSpecialist = ({ setSpecialists }) => {
   const [searchQuery, setSearchQuery] = React.useState('');
   const [expanded, setExpanded] = React.useState('');
-  const [speciality, setSpeciality] = React.useState('');
 
   const Specialities = [
     'Dentists',
@@ -20,31 +18,25 @@ const SearchSpecialist = () => {
     'Ophthalmologist',
   ];
 
-  const fetchAllData = async () => {
-    const response = await axioscreate.get(`/api/v1/specialists?speciality=${speciality}`);
-    if (!response.data) {
-      // return setSpecialists([]);
-    }
-    // setSpecialists(response.data);
+  const fetchAllData = async (value, type) => {
+    const { data } = await axioscreate.get(
+      `/api/v1/specialists?${type}=${value}`,
+    );
+    setSpecialists(data.data);
   };
-
-  const onChangeSearch = (query) => setSearchQuery(query);
-  React.useEffect(() => {
-    fetchAllData();
-  }, [speciality]);
 
   return (
     <View>
       <Searchbar
         placeholder="Search doctors"
-        onChangeText={onChangeSearch}
+        onChangeText={(query) => setSearchQuery(query)}
         value={searchQuery}
+        onSubmitEditing={() => fetchAllData(searchQuery, 'name')}
         iconColor="#022752"
         style={styles.bowlSearch}
       />
-
       <ListItem.Accordion
-      style={styles.bowlFilter}
+        style={styles.bowlFilter}
         content={
           <>
             <MaterialCommunityIcons
@@ -67,7 +59,7 @@ const SearchSpecialist = () => {
             key={i}
             onPress={() => {
               setExpanded(!expanded);
-              setSpeciality(l);
+              fetchAllData(l, 'speciality');
             }}
             bottomDivider
           >

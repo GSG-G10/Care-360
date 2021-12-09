@@ -1,35 +1,45 @@
-import React from 'react'
-import {  View,  StyleSheet } from 'react-native';
-import NavItem from './NavItem';
-const NavListData = [
-  {
-    title: 'Home',
-    icon: 'home',
-    link: 'Landingpage',
-  },
-  {
-    title: 'Specialists',
-    icon: 'graduation-cap',
-    link: 'SpecialistCard',
-  },
-  {
-    title: 'Appointment',
-    icon: 'edit',
-    link: 'appointment',
-  },
-];
+import React from 'react';
+import { View,TouchableOpacity, StyleSheet, Text,  } from 'react-native';
+import { Icon } from 'react-native-elements';
+
 function NavList({ navigation }) {
+  const NavListData = [
+    {
+      title: 'Home',
+      icon: 'home',
+      link: 'Landingpage',
+    },
+    {
+      title: 'Specialists',
+      icon: 'graduation-cap',
+      link: 'SpecialistCard',
+    },
+    {
+      title: 'Appointment',
+      icon: 'edit',
+      link: 'appointment',
+    },
+  ];
+
   return (
     <View style={styles.container}>
-      {NavListData.map((item, index) => {
+      {NavListData.map((item, i) => {
         return (
-          <NavItem
-            navigation={navigation}
-            key={index}
-            title={item.title}
-            icon={item.icon}
-            link={item.link}
-          />
+          <TouchableOpacity
+            style={styles.bowl}
+            key={i}
+            onPress={() => navigation.navigate(`${item.link}`, {specialityReady: ''})}
+          >
+            <Icon
+              name={item.icon}
+              type="font-awesome"
+              color="#000"
+              fontSize={30}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>{item.title}</Text>
+            </View>
+          </TouchableOpacity>
         );
       })}
     </View>
@@ -37,10 +47,24 @@ function NavList({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      width: '100%',
-      padding: '1.5rem 0',
-      marginBottom: '1.5rem',
-    }
-})
-export default NavList
+  container: {
+    padding: 5,
+    marginBottom: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bowl: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 7,
+    padding: 10,
+
+  },
+  text: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+});
+export default NavList;

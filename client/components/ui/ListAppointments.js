@@ -1,33 +1,25 @@
 import * as React from 'react';
-import { List } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View,Text } from 'react-native';
 
-const ListAppointments = ({ title,  details }) => {
-  const [expanded, setExpanded] = React.useState(true);
-
-  const handlePress = () => setExpanded(!expanded);
+const ListAppointments = ({ appointment }) => {
+  const { name, clinic_location, center_name } = appointment;
   
 
   return (
-    <List.Accordion
-      style={styles.listContainer}
-      title={title}
-      titleStyle={{ color: '#022752', fontWeight: 'bold', fontSize: 19 }}
-      left={(props) => <List.Icon {...props} icon={'calendar'} />}
-      onPress={handlePress}
-    >
-     
-          {/* <List.Item
-            title={item.title}
-            description={item.subtitle}
-            left={(props) => <List.Icon {...props} icon={item.icon} color={item.color} />}
-            right={(props) => <List.Icon {...props} icon={'chevron-right'} />}
-            titleStyle={{ color: '#022752', fontWeight: 'bold', fontSize: 19 }}
-            descriptionStyle={{ color: '#022752', fontWeight: 'bold', fontSize: 19 }}
-            style={{ borderBottomColor: '#022752', borderBottomWidth: 1 }}
-          /> */}
-      
-    </List.Accordion>
+    <View style={{ marginTop: 10 }}>
+      <View style={styles.content}>
+        <Text style={styles.title}>Specialist name:</Text>
+        <Text style={styles.contentText}>{name}</Text>
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.title}>Clinic name:</Text>
+        <Text style={styles.contentText}>{center_name}</Text>
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.title}>Clinic location:</Text>
+        <Text style={styles.contentText}>{clinic_location}</Text>
+      </View>
+    </View>
   );
 };
 
@@ -39,9 +31,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 5,
   },
-  details: {
-    fontSize: 2,
+  content: {
+    flexDirection: 'row',
+    padding: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
   },
+  contentText:{},
+  title:{}
 });
 
 export default ListAppointments;

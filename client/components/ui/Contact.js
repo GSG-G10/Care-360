@@ -4,7 +4,7 @@ import { Icon } from 'react-native-elements';
 function Contact() {
     return (
       <View style={styles.container}>
-        <Text style={{fontSize:'1rem'}} >Contact us</Text>
+        <Text style={{fontSize: 18}} >Contact us</Text>
         <View style={styles.socialMedia}>
           <Icon name="twitter" type="font-awesome" color="#ffc107" size={35} />
           <Icon
@@ -23,15 +23,15 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     width:'100%',
-    marginBottom:'1rem',
-    marginTop:'2.5rem'
+    marginBottom:20,
+    marginTop: 20
   },
   socialMedia:{
     flexDirection:'row',
     width: '100%',
     justifyContent:'space-around',
     width: '50%',
-    marginTop: '1rem',
+    marginTop: 20,
   }
 });
 
