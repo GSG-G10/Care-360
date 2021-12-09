@@ -5,7 +5,9 @@ const verifyToken = (token, secret) => new Promise((resolve, reject) => {
     if (err) {
       err.status(401);
       reject(err);
-    } else resolve(decode);
+    } else {
+      resolve(decode);
+    }
   });
 });
 

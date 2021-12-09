@@ -11,13 +11,16 @@ const {
   getspecialist,
 } = require('./specialists');
 const { error404, serverError } = require('./errors');
-const { signup, login, logout } = require('./auth');
+const {
+  signup, login, logout, userInfo,
+} = require('./auth');
 
 module.exports = {
   books,
   login,
   logout,
   signup,
+  userInfo,
   error404,
   serverError,
   getspecialist,
