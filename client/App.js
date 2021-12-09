@@ -8,13 +8,9 @@ import Dashboard from './screens/Dashboard';
 import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
-<<<<<<< HEAD
 import Navbar from "./components/Navbar"
 import Appointment from './screens/Appointment';
-=======
-import Navbar from "./components/Navbar";
 import Specialist from './screens/Specialist';
->>>>>>> 225a1561de61f3831878d16a7d0476662ad1616b
 const Stack = createNativeStackNavigator();
 
 function RootStack() {
@@ -32,11 +28,8 @@ function RootStack() {
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />
         <Stack.Screen name="Getspecialists" component={Getspecialists} />
         <Stack.Screen name="Navbar" component={Navbar} />
-<<<<<<< HEAD
         <Stack.Screen name="Appointment" component={Appointment} />
-=======
         <Stack.Screen name='Specialist' component={Specialist} /> 
->>>>>>> 225a1561de61f3831878d16a7d0476662ad1616b
       </Stack.Navigator>
     </NavigationContainer>
   );
