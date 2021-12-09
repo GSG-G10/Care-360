@@ -69,6 +69,7 @@ const SpecialistCard = ({route, navigation}) => {
                       icon="account-outline"
                       mode="outlined"
                       color="#022752"
+                      onPress={() => navigation.navigate('Specialist', {doctorId: specialist.id})}
                     >
                       <Text style={styles.buttonsFont}> View Profile</Text>
                     </Button>
