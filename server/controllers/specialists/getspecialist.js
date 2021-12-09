@@ -1,4 +1,7 @@
-const { getspecialistquery, allSpecialists } = require('../../database/queries');
+const {
+  getspecialistquery,
+  allSpecialists,
+} = require('../../database/queries');
 
 const getspecialist = async (req, res, next) => {
   try {
