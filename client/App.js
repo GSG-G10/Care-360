@@ -7,6 +7,7 @@ import Dashboard from './screens/Dashboard';
 import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
+import Addadoctor from './screens/dash/Addadoctor';
 import Navbar from "./components/Navbar"
 import Appointment from './screens/Appointment';
 import Specialist from './screens/Specialist';
@@ -22,6 +23,7 @@ function RootStack() {
         <Stack.Screen name="Landingpage" component={Landingpage} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
+        <Stack.Screen name="Addadoctor" component={Addadoctor} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Book" component={Book} />
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />

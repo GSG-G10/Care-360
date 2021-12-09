@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import {windowHeight, windowWidth} from '../utils/Dimentions';
-
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const FormInput = ({labelValue, placeholderText, iconType, ...rest}) => {
@@ -27,9 +26,9 @@ export default FormInput;
 const styles = StyleSheet.create({
   inputContainer: {
     marginTop: 5,
-    marginBottom: 10,
+    marginBottom: 5,
     width: '100%',
-    height: windowHeight / 15,
+    height: windowHeight / 16,
     borderColor: '#ccc',
     borderRadius: 3,
     borderWidth: 1,
@@ -58,8 +57,8 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 5,
     marginBottom: 10,
-    width: windowWidth / 1.5,
-    height: windowHeight / 15,
+    // width: windowWidth / 1.5,
+    // height: windowHeight / 15,
     fontSize: 16,
     borderRadius: 8,
     borderWidth: 1,

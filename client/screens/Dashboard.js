@@ -12,7 +12,7 @@ import HomeDash from './dash/HomeDash';
 import TableUsers from './dash/TableUsers';
 import TableDoctors from './dash/TableDoctors';
 
-function Dashboard() {
+function Dashboard({navigation}) {
   const [currentPage, setCurrentPage] = useState('home');
   return (
     <View style={styles.container}>
@@ -49,7 +49,7 @@ function Dashboard() {
       </View>
 
 {
-  currentPage === 'home' ? <HomeDash /> :   currentPage === 'users' ? <TableUsers /> :
+  currentPage === 'home' ? <HomeDash navigation={navigation} /> :   currentPage === 'users' ? <TableUsers /> :
   currentPage === 'doctor' ? <TableDoctors /> : null
 }
           

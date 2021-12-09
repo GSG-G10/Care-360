@@ -30,6 +30,7 @@ const SpecialistCard = ({ route, navigation }) => {
         url = `/api/v1/specialists?speciality=${specialityReady}`;
       }
       const { data } = await axioscreate.get(url);
+      console.log(data);
       setSpecialists(specialityReady ? data.data : data);
     } catch {
       setErrorMessage('There is no events with this filter');
@@ -74,6 +75,9 @@ const SpecialistCard = ({ route, navigation }) => {
                       </View>
                       <View style={styles.buttonsContainer}>
                         <TouchableOpacity>
+                          {
+                            console.log( specialist.id)
+                          }
                           <Button
                             style={styles.buttons}
                             icon="account-outline"
