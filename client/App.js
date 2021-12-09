@@ -8,7 +8,7 @@ import Dashboard from './screens/Dashboard';
 import SpecialistCard from './features/Specialists/Screen/Specialist-view';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
-
+import Navbar from "./components/Navbar"
 const Stack = createNativeStackNavigator();
 
 function RootStack() {
@@ -25,6 +25,7 @@ function RootStack() {
         <Stack.Screen name="Book" component={Book} />
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />
         <Stack.Screen name="Getspecialists" component={Getspecialists} />
+        <Stack.Screen name="Navbar" component={Navbar} />
       </Stack.Navigator>
     </NavigationContainer>
   );
