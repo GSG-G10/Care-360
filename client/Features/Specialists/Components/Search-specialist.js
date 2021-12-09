@@ -18,9 +18,9 @@ const SearchSpecialist = ({ setSpecialists }) => {
     'Ophthalmologist',
   ];
 
-  const fetchAllData = async (value) => {
+  const fetchAllData = async (value, type) => {
     const { data } = await axioscreate.get(
-      `/api/v1/specialists?speciality=${value}`,
+      `/api/v1/specialists?${type}=${value}`,
     );
     setSpecialists(data.data);
   };
@@ -31,7 +31,7 @@ const SearchSpecialist = ({ setSpecialists }) => {
         placeholder="Search doctors"
         onChangeText={(query) => setSearchQuery(query)}
         value={searchQuery}
-        onSubmitEditing={() => fetchAllData(searchQuery)}
+        onSubmitEditing={() => fetchAllData(searchQuery, 'name')}
         iconColor="#022752"
         style={styles.bowlSearch}
       />
@@ -59,7 +59,7 @@ const SearchSpecialist = ({ setSpecialists }) => {
             key={i}
             onPress={() => {
               setExpanded(!expanded);
-              fetchAllData(l);
+              fetchAllData(l, 'speciality');
             }}
             bottomDivider
           >

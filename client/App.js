@@ -3,12 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Landingpage } from './Features/landing/Landingpage';
 import Book from './screens/Book';
-import { Getspecialists } from './Features/specialities/Getspecialists';
 import Dashboard from './screens/Dashboard';
 import SpecialistCard from './Features/Specialists/Screen/Specialist-view';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
-import Navbar from "./components/Navbar";
+import Navbar from './components/Navbar';
 import Specialist from './screens/Specialist';
 const Stack = createNativeStackNavigator();
 
@@ -25,9 +24,8 @@ function RootStack() {
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Book" component={Book} />
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />
-        <Stack.Screen name="Getspecialists" component={Getspecialists} />
         <Stack.Screen name="Navbar" component={Navbar} />
-        <Stack.Screen name='Specialist' component={Specialist} /> 
+        <Stack.Screen name="Specialist" component={Specialist} />
       </Stack.Navigator>
     </NavigationContainer>
   );
