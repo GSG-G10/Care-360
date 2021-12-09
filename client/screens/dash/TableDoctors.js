@@ -29,7 +29,7 @@ function TableUsers() {
               >
                 <Text>{i + 1}</Text>
                 <Image
-                  source={{ uri: user.image }}
+                  source={ user.image ? { uri: user.image } : null}
                   style={{ width: 40, height: 40, borderRadius: 50 }}
                 />
               </View>

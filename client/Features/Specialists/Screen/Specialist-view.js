@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import {
   View,
   Text,
@@ -7,7 +6,10 @@ import {
   ScrollView,
   Platform,
   StatusBar,
+  Image,
+  ImageBackground,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 
 import { Avatar, Button } from 'react-native-paper';
@@ -28,6 +30,7 @@ const SpecialistCard = ({ route, navigation }) => {
         url = `/api/v1/specialists?speciality=${specialityReady}`;
       }
       const { data } = await axioscreate.get(url);
+      console.log(data);
       setSpecialists(specialityReady ? data.data : data);
     } catch {
       setErrorMessage('There is no events with this filter');
@@ -39,72 +42,91 @@ const SpecialistCard = ({ route, navigation }) => {
   }, []);
 
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <Header navigation={navigation} />
-      <ScrollView>
-        <View style={styles.container}>
-          <SearchSpecialist setSpecialists={setSpecialists} />
-          {specialists.length ? (
-            specialists.map((specialist) => {
-              return (
-                <View style={styles.cardContainer} key={specialist.id}>
-                  <View style={styles.doctorContainer}>
-                    <View style={styles.avatarContainer}>
-                      <Avatar.Image
-                        size={65}
-                        source={{ uri: specialist.image }}
-                      />
+      <ImageBackground
+        source={require('../../../assets/circles.png')}
+        resizeMode="cover"
+        style={{ flex: 1, justifyContent: 'center' }}
+      >
+        <View>
+          <ScrollView>
+            <View style={styles.container}>
+              <SearchSpecialist setSpecialists={setSpecialists} />
+              {specialists.length ? (
+                specialists.map((specialist, i) => {
+                  return (
+                    <View style={styles.cardContainer} key={i}>
+                      <View style={styles.doctorContainer}>
+                        <View style={styles.avatarContainer}>
+                          <Avatar.Image
+                            size={65}
+                            source={{ uri: specialist.image }}
+                          />
+                        </View>
+                        <View>
+                          <Text style={styles.headerFont}>
+                            {specialist.name}
+                          </Text>
+                          <Text style={styles.specialityFont}>
+                            {specialist.specialty}
+                          </Text>
+                        </View>
+                      </View>
+                      <View style={styles.buttonsContainer}>
+                        <TouchableOpacity>
+                          {
+                            console.log( specialist.id)
+                          }
+                          <Button
+                            style={styles.buttons}
+                            icon="account-outline"
+                            mode="outlined"
+                            color="#022752"
+                            onPress={() =>
+                              navigation.navigate('Specialist', {
+                                doctorId: specialist.id,
+                              })
+                            }
+                          >
+                            <Text style={styles.buttonsFont}>
+                              {' '}
+                              View Profile
+                            </Text>
+                          </Button>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                          <Button
+                            style={styles.buttons}
+                            icon="calendar"
+                            mode="contained"
+                            color="#FFB803"
+                            onPress={() =>
+                              navigation.navigate('Book', {
+                                idUser: specialist.id,
+                              })
+                            }
+                          >
+                            <Text style={styles.buttons}>Book Now</Text>
+                          </Button>
+                        </TouchableOpacity>
+                      </View>
                     </View>
-                    <View>
-                      <Text style={styles.headerFont}>{specialist.name}</Text>
-                      <Text style={styles.specialityFont}>
-                        {specialist.specialty}
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={styles.buttonsContainer}>
-                    <TouchableOpacity>
-                      <Button
-                        style={styles.buttons}
-                        icon="account-outline"
-                        mode="outlined"
-                        color="#022752"
-                        onPress={() =>
-                          navigation.navigate('Specialist', {
-                            doctorId: specialist.id,
-                          })
-                        }
-                      >
-                        <Text style={styles.buttonsFont}> View Profile</Text>
-                      </Button>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                      <Button
-                        style={styles.buttons}
-                        icon="calendar"
-                        mode="contained"
-                        color="#FFB803"
-                        onPress={() =>
-                          navigation.navigate('Book', { idUser: specialist.id })
-                        }
-                      >
-                        <Text style={styles.buttons}>Book Now</Text>
-                      </Button>
-                    </TouchableOpacity>
-                  </View>
+                  );
+                })
+              ) : (
+                <View style={styles.loading}>
+                  <ActivityIndicator size="large" color="#fff" />
+                  {errorMessage ? <Text>{errorMessage}</Text> : null}
                 </View>
-              );
-            })
-          ) : (
-            <View style={styles.loading}>
-              <Text>Loading..</Text>
-              {errorMessage ? <Text>{errorMessage}</Text> : null}
+              )}
             </View>
-          )}
+          </ScrollView>
         </View>
-      </ScrollView>
+      </ImageBackground>
+
       <Footer navigation={navigation} />
-    </>
+    </View>
   );
 };
 

@@ -18,11 +18,12 @@ function RootStack() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Addadoctor"
+        initialRouteName="Landingpage"
       >
         <Stack.Screen name="Landingpage" component={Landingpage} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
+        <Stack.Screen name="Addadoctor" component={Addadoctor} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Book" component={Book} />
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />

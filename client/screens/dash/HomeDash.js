@@ -9,7 +9,7 @@ import {
     TouchableOpacity,
   } from 'react-native';
 import axioscreate from '../../components/axioscreate';
-function HomeDash() {
+function HomeDash({navigation}) {
 
   const [analysis, setAnalysis] = useState([]);
   const getAllUsers = async () => {
@@ -37,7 +37,7 @@ function HomeDash() {
           <Text style={styles.title_cardbowl}>Total Appointments</Text>
           <Text style={styles.countCard}>{analysis.CountAppoints}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={null}  style={styles.bowl_Card_in}>
+        <TouchableOpacity onPress={() => navigation.navigate('Addadoctor')}  style={styles.bowl_Card_in}>
           <Feather name={'plus-circle'} style={styles.svg_Arrows} size={40} />
           <Text style={styles.title_cardbowl}>Add Doctor</Text>
           <Text style={styles.countCard}>{analysis.CountDocs}</Text>

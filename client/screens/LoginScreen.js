@@ -1,68 +1,75 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   TouchableOpacity,
   Image,
+  View,
   StyleSheet,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
+import { Footer } from '../components/Footer';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Image
-        source={require('../assets/logo.png')}
-        style={styles.logo}
-      />
-      <FormInput
-        labelValue={email}
-        onChangeText={(userEmail) => setEmail(userEmail)}
-        placeholderText="Email"
-        iconType="user"
-        keyboardType="email-address"
-        autoCapitalize="none"
-        autoCorrect={false}
-      />
-      <FormInput
-        labelValue={password}
-        onChangeText={(userPassword) => setPassword(userPassword)}
-        placeholderText="Password"
-        iconType="lock"
-        secureTextEntry={true}
-      />
+    <View style={styles.bowlMain}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Image source={require('../assets/logo.png')} style={styles.logo} />
+        <FormInput
+          labelValue={email}
+          onChangeText={(userEmail) => setEmail(userEmail)}
+          placeholderText="Email"
+          iconType="user"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+        <FormInput
+          labelValue={password}
+          onChangeText={(userPassword) => setPassword(userPassword)}
+          placeholderText="Password"
+          iconType="lock"
+          secureTextEntry={true}
+        />
 
-      <FormButton
-        buttonTitle="Sign In"
-        onPress={() => login(email, password)}
-      />
+        <FormButton
+          buttonTitle="Sign In"
+          onPress={() => login(email, password)}
+        />
 
-      <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
-        <Text style={styles.navButtonText}>Forgot Password?</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
+          <Text style={styles.navButtonText}>Forgot Password?</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.forgotButton}
-        onPress={() => navigation.navigate('SignupScreen')}>
-        <Text style={styles.navButtonText}>
-          Don't have an acount? Create here
-        </Text>
-      </TouchableOpacity>
-    </ScrollView>
+        <TouchableOpacity
+          style={styles.forgotButton}
+          onPress={() => navigation.navigate('SignupScreen')}
+        >
+          <Text style={styles.navButtonText}>
+            Don't have an acount? Create here
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
+      <Footer navigation={navigation} />
+    </View>
   );
 };
 
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+
+  bowlMain:{
+    height: '100%'
+  },  
   container: {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    paddingTop: 50
+    paddingTop: 50,
   },
   logo: {
     height: 100,
