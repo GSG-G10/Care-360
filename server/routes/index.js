@@ -4,6 +4,7 @@ const {
   books,
   signup,
   logout,
+  userInfo,
   error404,
   serverError,
   getDoctor,
@@ -16,7 +17,7 @@ const {
 const { analisis } = require('../controllers/dashboard/analysis');
 const { doctorsAll } = require('../controllers/dashboard/get-doctors');
 const { usersAll } = require('../controllers/dashboard/get-users');
-const { userVerify, checkUserExist } = require('../middlewares');
+const { userVerify, checkUserExist, checkAuth } = require('../middlewares');
 
 router.post('/specialist', postSpecialist);
 router.get('/specialists', getspecialist);
@@ -26,6 +27,7 @@ router.post('/appointments', appointmentsPost);
 router.get('/books/:id', books);
 router.post('/signup', checkUserExist, signup);
 router.get('/logout', logout);
+router.get('/userInfo', checkAuth, userInfo);
 router.post('/login', login);
 router.get('/users', usersAll);
 router.get('/doctors', doctorsAll);
