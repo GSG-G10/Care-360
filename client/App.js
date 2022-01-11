@@ -27,8 +27,6 @@ function RootStack() {
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Book" component={Book} />
         <Stack.Screen name="SpecialistCard" component={SpecialistCard} />
-        <Stack.Screen name="Getspecialists" component={Getspecialists} />
-        <Stack.Screen name="Addadoctor" component={Addadoctor} />
         <Stack.Screen name="Navbar" component={Navbar} />
         <Stack.Screen name="Appointment" component={Appointment} />
         <Stack.Screen name='Specialist' component={Specialist} /> 
