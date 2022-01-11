@@ -15,7 +15,7 @@ const addSpecialist = async ({
   image,
 }) => {
   const hashedPassword = await hashPassword(password);
-  const { rows } = await connection.query(
+  const { command } = await connection.query(
     `
       INSERT INTO doctors
       (name,email,password,specialty,center_name,clinic_location,
@@ -36,7 +36,7 @@ const addSpecialist = async ({
       image,
     ],
   );
-  return rows[0];
+  return command;
 };
 
 module.exports = addSpecialist;

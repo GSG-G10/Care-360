@@ -8,8 +8,8 @@ module.exports = joi.object({
   center_name: joi.required(),
   clinic_location: joi.required(),
   phone_number: joi.string().required(),
-  education: joi.array().required(),
-  experience: joi.array().required(),
-  treatments: joi.array().required(),
+  education: joi.string().required(),
+  experience: joi.string().required(),
+  treatments: joi.string().required(),
   image: joi.string().required(),
 });
